@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Yönlendirme</title>
+  <script>
+    window.onload = function() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      
+      // iOS kontrolü
+      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        window.location.href = "https://apps.apple.com/app";  // App Store bağlantınız
+      }
+      // Android kontrolü
+      else if (/android/i.test(userAgent)) {
+        window.location.href = "https://play.google.com/store";  // Google Play Store bağlantınız
+      }
+      // Diğer durumlar (PC vb.)
+      else {
+        window.location.href = "https://www.google.com";  // Bilgisayar bağlantısı için
+      }
+    };
+  </script>
+</head>
+<body>
+  <p>Yönlendiriliyorsunuz, lütfen bekleyiniz...</p>
+</body>
+</html>
