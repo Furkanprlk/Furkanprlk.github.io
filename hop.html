@@ -2,27 +2,181 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yönlendirme</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 90%;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      color: white;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 15px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .message {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      font-size: 16px;
+    }
+
+    .loading {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .loading.show {
+      display: block;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #667eea;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 15px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .error-message {
+      background: #ff6b6b;
+      color: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .error-message.show {
+      display: block;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 15px;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">📱</div>
+    <h1>Yönlendirme</h1>
+    
+    <div id="android-content" class="loading">
+      <div class="spinner"></div>
+      <p class="message">Instagram'a yönlendiriliyorsunuz...</p>
+    </div>
+    
+    <div id="non-android-content" class="error-message">
+      <h3>⚠️ Üzgünüz</h3>
+      <p>Bu bağlantı sadece Android cihazlarda geçerlidir.</p>
+      <a href="https://www.instagram.com/furkanprlkk/" class="btn" target="_blank">
+        Instagram'ı Aç
+      </a>
+    </div>
+  </div>
+
   <script>
     window.onload = function() {
       var userAgent = navigator.userAgent || navigator.vendor || window.opera;
       
-      // iOS kontrolü
-      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-        window.location.href = "https://www.instagram.com/furkanprlkk/";  // App Store bağlantınız
-      }
       // Android kontrolü
-      else if (/android/i.test(userAgent)) {
-        window.location.href = "https://www.instagram.com/furkanprlkk/";  // Google Play Store bağlantınız
+      if (/android/i.test(userAgent)) {
+        document.getElementById('android-content').classList.add('show');
+        // 2 saniye sonra Instagram'a yönlendir
+        setTimeout(function() {
+          window.location.href = "https://www.instagram.com/furkanprlkk/";
+        }, 2000);
       }
-      // Diğer durumlar (PC vb.)
+      // Diğer cihazlar (iOS, PC vb.)
       else {
-        window.location.href = "https://www.instagram.com/furkanprlkk/";  // Bilgisayar bağlantısı için
+        document.getElementById('non-android-content').classList.add('show');
       }
     };
   </script>
-</head>
-<body>
-  <p>Yönlendiriliyorsunuz, lütfen bekleyiniz...</p>
 </body>
 </html>
