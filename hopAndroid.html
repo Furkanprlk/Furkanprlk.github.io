@@ -17,6 +17,12 @@
       color: #fff;
       overflow: hidden;
     }
+    .stars {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
     .modern-container {
       background: rgba(30, 34, 54, 0.95);
       border-radius: 32px;
@@ -78,38 +84,88 @@
   <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
-  <div class="modern-container">
+  <canvas class="stars"></canvas>
+  <div class="modern-container" id="android-content">
     <img src="img/hop-image.png" alt="Hop Logo" class="logo" />
     <h1>DigiLabs</h1>
     <div class="google-btn" id="g_id_signin"></div>
     <div class="email-info" id="email-info"></div>
   </div>
+  <div class="modern-container" id="non-android-content" style="display:none;">
+    <p>Bu sayfa sadece Android cihazlarda kullanılabilir.</p>
+  </div>
   <script>
-    // Google Sign-In entegrasyonu
-    window.onload = function() {
-      // Yalnızca Android cihazlarda göster
-      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-      if (!/android/i.test(userAgent)) {
-        document.body.innerHTML = '<div style="color:#fff;text-align:center;margin-top:40vh;font-size:1.3rem;">Bu sayfa sadece Android cihazlarda kullanılabilir.</div>';
-        return;
+    // Animated star background (same as hop.html)
+    const canvas = document.querySelector('.stars');
+    const ctx = canvas.getContext('2d');
+    let w, h, stars = [];
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    function createStars() {
+      stars = [];
+      for (let i = 0; i < 120; i++) {
+        stars.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: Math.random() * 1.2 + 0.3,
+          o: Math.random() * 0.5 + 0.5
+        });
       }
-      // Google Sign-In butonunu başlat
-      window.handleCredentialResponse = function(response) {
-        // JWT token'ı decode ederek e-posta adresini al
-        const payload = JSON.parse(atob(response.credential.split('.')[1]));
-        document.getElementById('email-info').style.display = 'block';
-        document.getElementById('email-info').innerHTML = '<b>Giriş Yapılan E-posta:</b><br>' + payload.email;
-      };
-      google.accounts.id.initialize({
-        // Aşağıdaki client_id test amaçlıdır, kendi client_id'niz ile değiştirin
-        client_id: '1092064004747-2v7v6v7v7v7v7v7v7v7v7v7v7v7v7v7.apps.googleusercontent.com',
-        callback: handleCredentialResponse
-      });
-      google.accounts.id.renderButton(
-        document.getElementById('g_id_signin'),
-        { theme: 'outline', size: 'large', text: 'continue_with', shape: 'pill' }
-      );
-      google.accounts.id.prompt();
+    }
+    function drawStars() {
+      ctx.clearRect(0, 0, w, h);
+      for (const s of stars) {
+        ctx.globalAlpha = s.o;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, 2 * Math.PI);
+        ctx.fillStyle = '#fff';
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    }
+    function animateStars() {
+      for (const s of stars) {
+        s.y += 0.08 + s.r * 0.08;
+        if (s.y > h) s.y = 0;
+      }
+      drawStars();
+      requestAnimationFrame(animateStars);
+    }
+    resize();
+    createStars();
+    animateStars();
+    window.addEventListener('resize', () => {
+      resize();
+      createStars();
+    });
+    // Google Sign-In entegrasyonu ve içerik gösterimi
+    window.onload = function() {
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      if (/android/i.test(userAgent)) {
+        document.getElementById('android-content').style.display = 'block';
+        document.getElementById('non-android-content').style.display = 'none';
+        // Google Sign-In butonunu başlat
+        window.handleCredentialResponse = function(response) {
+          const payload = JSON.parse(atob(response.credential.split('.')[1]));
+          document.getElementById('email-info').style.display = 'block';
+          document.getElementById('email-info').innerHTML = '<b>Giriş Yapılan E-posta:</b><br>' + payload.email;
+        };
+        google.accounts.id.initialize({
+          client_id: '1092064004747-2v7v6v7v7v7v7v7v7v7v7v7v7v7v7v7.apps.googleusercontent.com',
+          callback: handleCredentialResponse
+        });
+        google.accounts.id.renderButton(
+          document.getElementById('g_id_signin'),
+          { theme: 'outline', size: 'large', text: 'continue_with', shape: 'pill' }
+        );
+        google.accounts.id.prompt();
+      } else {
+        document.getElementById('android-content').style.display = 'none';
+        document.getElementById('non-android-content').style.display = 'block';
+      }
     };
   </script>
 </body>

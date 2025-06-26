@@ -128,35 +128,35 @@
 </head>
 <body>
   <canvas class="stars"></canvas>
-  <div class="modern-container">
+  <div class="modern-container" id="android-content" style="display:none;">
     <img src="img/hop-image.png" alt="Hop Logo" class="logo" />
     <h1>DigiLabs</h1>
-    <div id="android-content" class="loading">
-      <div class="spinner"></div>
-      <p class="message">Instagram'a yönlendiriliyorsunuz...</p>
-      <h3>📱 Android Kullanıcısı</h3>
-      <p>Android cihazınız için yönlendiriliyorsunuz...</p>
-      <a href="https://www.instagram.com/furkanprlkk/" class="btn" target="_blank">
-        Instagram'ı Aç
-      </a>
-    </div>
-    <div id="ios-content" class="error-message">
-      <h3>📱 iOS Kullanıcısı</h3>
-      <p>iOS cihazınız için yönlendiriliyorsunuz...</p>
-      <a href="https://www.apple.com/app-store/" class="btn" target="_blank">
-        App Store'a Git
-      </a>
-    </div>
-    <div id="non-android-content" class="error-message">
-      <h3>⚠️ Üzgünüz</h3>
-      <p>Bu bağlantı sadece Android cihazlarda geçerlidir.</p>
-      <a href="https://www.instagram.com/furkanprlkk/" class="btn" target="_blank">
-        Instagram'ı Aç
-      </a>
-    </div>
+    <div class="google-btn" id="g_id_signin"></div>
+    <form id="phone-form" style="display:none; margin-top:24px;">
+      <label for="phone" style="color:#eaeaea; font-size:1rem;">Telefon Numaranız:</label><br>
+      <input type="tel" id="phone" name="phone" pattern="[0-9]{10,}" required placeholder="5XXXXXXXXX" style="margin-top:8px;padding:10px 16px;border-radius:8px;border:none;font-size:1rem;width:80%;max-width:220px;outline:none;">
+      <button type="submit" class="btn" style="margin-top:14px;">Gönder</button>
+      <div id="phone-error" style="color:#ff6b6b; margin-top:8px; display:none; font-size:0.95rem;"></div>
+    </form>
+    <div class="email-info" id="email-info"></div>
   </div>
+  <div class="modern-container" id="ios-content" style="display:none;">
+    <h3>📱 iOS Kullanıcısı</h3>
+    <p>iOS cihazınız için yönlendiriliyorsunuz...</p>
+    <a href="https://testflight.apple.com/join/tbWAHN8R" class="btn" target="_blank">
+      TestFlight ile Aç
+    </a>
+  </div>
+  <div class="modern-container" id="non-android-content" style="display:none;">
+    <h3>⚠️ Üzgünüz</h3>
+    <p>Bu bağlantı sadece Android veya iOS cihazlarda geçerlidir.</p>
+    <a href="https://www.instagram.com/furkanprlkk/" class="btn" target="_blank">
+      Instagram'ı Aç
+    </a>
+  </div>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script>
-    // Basit yıldızlı arka plan animasyonu
+    // Animated star background (same as hopAndroid.html)
     const canvas = document.querySelector('.stars');
     const ctx = canvas.getContext('2d');
     let w, h, stars = [];
@@ -198,26 +198,55 @@
     resize();
     createStars();
     animateStars();
-    // Yeniden boyutlanınca yıldızları güncelle
     window.addEventListener('resize', () => {
       resize();
       createStars();
     });
-    // Yönlendirme ve mesaj gösterme
+    // Show/hide content based on device
     window.onload = function() {
       var userAgent = navigator.userAgent || navigator.vendor || window.opera;
       if (/android/i.test(userAgent)) {
-        document.getElementById('android-content').classList.add('show');
-        setTimeout(function() {
-          window.location.href = "https://www.instagram.com/furkanprlkk/";
-        }, 2000);
+        document.getElementById('android-content').style.display = 'block';
+        document.getElementById('ios-content').style.display = 'none';
+        document.getElementById('non-android-content').style.display = 'none';
+        // Google Sign-In
+        window.handleCredentialResponse = function(response) {
+          const payload = JSON.parse(atob(response.credential.split('.')[1]));
+          document.getElementById('phone-form').style.display = 'block';
+          document.getElementById('email-info').style.display = 'none';
+          document.getElementById('phone-form').onsubmit = function(e) {
+            e.preventDefault();
+            var phone = document.getElementById('phone').value.replace(/\D/g, '');
+            if (phone.length < 10) {
+              document.getElementById('phone-error').innerText = 'Lütfen geçerli bir telefon numarası girin (en az 10 rakam).';
+              document.getElementById('phone-error').style.display = 'block';
+              return;
+            }
+            document.getElementById('phone-error').style.display = 'none';
+            document.getElementById('email-info').style.display = 'block';
+            document.getElementById('email-info').innerHTML = '<b>Giriş Yapılan E-posta:</b><br>' + payload.email + '<br><b>Telefon Numaranız:</b><br>' + phone;
+          };
+        };
+        google.accounts.id.initialize({
+          client_id: '1092064004747-2v7v6v7v7v7v7v7v7v7v7v7v7v7v7v7.apps.googleusercontent.com',
+          callback: handleCredentialResponse
+        });
+        google.accounts.id.renderButton(
+          document.getElementById('g_id_signin'),
+          { theme: 'outline', size: 'large', text: 'continue_with', shape: 'pill' }
+        );
+        google.accounts.id.prompt();
       } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-        document.getElementById('ios-content').classList.add('show');
+        document.getElementById('android-content').style.display = 'none';
+        document.getElementById('ios-content').style.display = 'block';
+        document.getElementById('non-android-content').style.display = 'none';
         setTimeout(function() {
           window.location.href = "https://testflight.apple.com/join/tbWAHN8R";
         }, 2000);
       } else {
-        document.getElementById('non-android-content').classList.add('show');
+        document.getElementById('android-content').style.display = 'none';
+        document.getElementById('ios-content').style.display = 'none';
+        document.getElementById('non-android-content').style.display = 'block';
       }
     };
   </script>
