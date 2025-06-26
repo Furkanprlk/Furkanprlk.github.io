@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Android Yönlendirme</title>
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(ellipse at top left, #232946 60%, #121629 100%);
+      font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+      color: #fff;
+      overflow: hidden;
+    }
+    .modern-container {
+      background: rgba(30, 34, 54, 0.95);
+      border-radius: 32px;
+      box-shadow: 0 8px 40px 0 rgba(0,0,0,0.25);
+      padding: 48px 32px 40px 32px;
+      max-width: 380px;
+      width: 95vw;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 1s cubic-bezier(.4,0,.2,1);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .logo {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 24px auto;
+      display: block;
+      border-radius: 50%;
+      box-shadow: 0 4px 24px 0 rgba(102, 126, 234, 0.25);
+      background: #232946;
+      object-fit: cover;
+      border: 4px solid #3dd9eb;
+      animation: logoPop 1.2s cubic-bezier(.4,0,.2,1);
+    }
+    @keyframes logoPop {
+      0% { transform: scale(0.7); opacity: 0; }
+      60% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #3dd9eb;
+      letter-spacing: 1px;
+    }
+    .google-btn {
+      margin: 24px auto 0 auto;
+      display: flex;
+      justify-content: center;
+    }
+    .email-info {
+      margin-top: 24px;
+      background: #232946;
+      color: #3dd9eb;
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      word-break: break-all;
+      box-shadow: 0 2px 12px 0 rgba(61,217,235,0.10);
+      display: none;
+    }
+  </style>
+  <!-- Google Identity Services script -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+  <div class="modern-container">
+    <img src="img/hop-image.png" alt="Hop Logo" class="logo" />
+    <h1>DigiLabs</h1>
+    <div class="google-btn" id="g_id_signin"></div>
+    <div class="email-info" id="email-info"></div>
+  </div>
+  <script>
+    // Google Sign-In entegrasyonu
+    window.onload = function() {
+      // Yalnızca Android cihazlarda göster
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      if (!/android/i.test(userAgent)) {
+        document.body.innerHTML = '<div style="color:#fff;text-align:center;margin-top:40vh;font-size:1.3rem;">Bu sayfa sadece Android cihazlarda kullanılabilir.</div>';
+        return;
+      }
+      // Google Sign-In butonunu başlat
+      window.handleCredentialResponse = function(response) {
+        // JWT token'ı decode ederek e-posta adresini al
+        const payload = JSON.parse(atob(response.credential.split('.')[1]));
+        document.getElementById('email-info').style.display = 'block';
+        document.getElementById('email-info').innerHTML = '<b>Giriş Yapılan E-posta:</b><br>' + payload.email;
+      };
+      google.accounts.id.initialize({
+        // Aşağıdaki client_id test amaçlıdır, kendi client_id'niz ile değiştirin
+        client_id: '1092064004747-2v7v6v7v7v7v7v7v7v7v7v7v7v7v7v7.apps.googleusercontent.com',
+        callback: handleCredentialResponse
+      });
+      google.accounts.id.renderButton(
+        document.getElementById('g_id_signin'),
+        { theme: 'outline', size: 'large', text: 'continue_with', shape: 'pill' }
+      );
+      google.accounts.id.prompt();
+    };
+  </script>
+</body>
+</html> 

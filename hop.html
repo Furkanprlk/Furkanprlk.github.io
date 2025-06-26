@@ -83,7 +83,7 @@
       100% { transform: rotate(360deg); }
     }
     .error-message {
-      background: rgba(255, 107, 107, 0.9);
+      background: rgba(226, 36, 36, 0.384);
       color: #fff;
       padding: 16px;
       border-radius: 12px;
@@ -130,10 +130,22 @@
   <canvas class="stars"></canvas>
   <div class="modern-container">
     <img src="img/hop-image.png" alt="Hop Logo" class="logo" />
-    <h1>Yönlendirme</h1>
+    <h1>DigiLabs</h1>
     <div id="android-content" class="loading">
       <div class="spinner"></div>
       <p class="message">Instagram'a yönlendiriliyorsunuz...</p>
+      <h3>📱 Android Kullanıcısı</h3>
+      <p>Android cihazınız için yönlendiriliyorsunuz...</p>
+      <a href="https://www.instagram.com/furkanprlkk/" class="btn" target="_blank">
+        Instagram'ı Aç
+      </a>
+    </div>
+    <div id="ios-content" class="error-message">
+      <h3>📱 iOS Kullanıcısı</h3>
+      <p>iOS cihazınız için yönlendiriliyorsunuz...</p>
+      <a href="https://www.apple.com/app-store/" class="btn" target="_blank">
+        App Store'a Git
+      </a>
     </div>
     <div id="non-android-content" class="error-message">
       <h3>⚠️ Üzgünüz</h3>
@@ -198,6 +210,11 @@
         document.getElementById('android-content').classList.add('show');
         setTimeout(function() {
           window.location.href = "https://www.instagram.com/furkanprlkk/";
+        }, 2000);
+      } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        document.getElementById('ios-content').classList.add('show');
+        setTimeout(function() {
+          window.location.href = "https://testflight.apple.com/join/tbWAHN8R";
         }, 2000);
       } else {
         document.getElementById('non-android-content').classList.add('show');
