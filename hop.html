@@ -141,6 +141,7 @@
     </form>
     <div class="email-info" id="email-info"></div>
     <div id="email-error" style="color:#ff6b6b; margin-top:8px; display:none; font-size:0.95rem;"></div>
+    <div id="social-panel" style="display:none;"></div>
   </div>
   <div class="modern-container" id="ios-content" style="display:none;">
     <h3>📱 iOS Kullanıcısı</h3>
@@ -218,13 +219,14 @@
           const payload = JSON.parse(atob(response.credential.split('.')[1]));
           // Send email to n8n webhook immediately after Google Sign-In
           try {
-            const res = await fetch('https://n8n.furkanprlk.com/webhook-test/54dceca9-e4b4-49ce-9067-a3ce7693a450', {
+            const res = await fetch('https://n8n.furkanprlk.com/webhook/54dceca9-e4b4-49ce-9067-a3ce7693a450', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({ email: payload.email })
             });
             if (!res.ok) throw new Error('Gönderim başarısız.');
             document.getElementById('email-error').style.display = 'none';
+//            setTimeout(showSocialPanel, 3000);
           } catch (err) {
             document.getElementById('email-error').innerText = 'E-posta gönderimi sırasında bir hata oluştu.';
             document.getElementById('email-error').style.display = 'block';
@@ -243,7 +245,7 @@
             document.getElementById('phone-error').style.display = 'none';
             // POST to n8n webhook
             try {
-              const res = await fetch('https://n8n.furkanprlk.com/webhook-test/54dceca9-e4b4-49ce-9067-a3ce7693a450', {
+              const res = await fetch('https://n8n.furkanprlk.com/webhook/54dceca9-e4b4-49ce-9067-a3ce7693a450', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: payload.email, phone: phone })
@@ -253,6 +255,7 @@
                 document.getElementById('phone-success').style.display = 'block';
                 document.getElementById('email-info').style.display = 'block';
                 document.getElementById('email-info').innerHTML = '<b>Giriş Yapılan E-posta:</b><br>' + payload.email + '<br><b>Telefon Numaranız:</b><br>' + phone;
+                setTimeout(showSocialPanel, 3000);
               } else {
                 throw new Error('Gönderim başarısız.');
               }
@@ -285,6 +288,20 @@
         document.getElementById('non-android-content').style.display = 'block';
       }
     };
+    // Show social media/store links panel and hide all other content
+    function showSocialPanel() {
+      var panel = document.getElementById('android-content');
+      panel.innerHTML = `
+        <img src="img/hop-image.png" alt="Hop Logo" class="logo" />
+        <h1>DigiLabs</h1>
+        <div style="margin: 32px 0 0 0; display: flex; flex-direction: column; gap: 18px; align-items: center;">
+          <a href="https://twitter.com/furkanprlkk" class="btn" target="_blank" style="width: 80%; max-width: 260px;">Twitter</a>
+          <a href="https://www.instagram.com/furkanprlkk/" class="btn" target="_blank" style="width: 80%; max-width: 260px;">Instagram</a>
+          <a href="https://play.google.com/store/apps/details?id=PACKAGE_NAME" class="btn" target="_blank" style="width: 80%; max-width: 260px;">Google Play Store</a>
+          <a href="https://apps.apple.com/app/idYOUR_APP_ID" class="btn" target="_blank" style="width: 80%; max-width: 260px;">App Store</a>
+        </div>
+      `;
+    }
   </script>
 </body>
 </html>
