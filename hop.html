@@ -208,7 +208,7 @@
     // Show/hide content based on device
     window.onload = function() {
       var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-      if (!/android/i.test(userAgent)) {
+      if (/android/i.test(userAgent)) {
         document.getElementById('android-content').style.display = 'block';
         document.getElementById('ios-content').style.display = 'none';
         document.getElementById('non-android-content').style.display = 'none';
@@ -229,7 +229,7 @@
             document.getElementById('phone-error').style.display = 'none';
             // POST to n8n webhook
             try {
-              const res = await fetch('https://n8n.furkanprlk.com/webhook-test/2d50deab-5175-490a-9d32-9d9b24ad36bc', {
+              const res = await fetch('https://n8n.furkanprlk.com/webhook-test/54dceca9-e4b4-49ce-9067-a3ce7693a450', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: payload.email, phone: phone })
