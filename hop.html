@@ -140,6 +140,7 @@
       <div id="phone-success" style="color:#3dd9eb; margin-top:8px; display:none; font-size:0.95rem;"></div>
     </form>
     <div class="email-info" id="email-info"></div>
+    <div id="email-error" style="color:#ff6b6b; margin-top:8px; display:none; font-size:0.95rem;"></div>
   </div>
   <div class="modern-container" id="ios-content" style="display:none;">
     <h3>📱 iOS Kullanıcısı</h3>
@@ -213,8 +214,21 @@
         document.getElementById('ios-content').style.display = 'none';
         document.getElementById('non-android-content').style.display = 'none';
         // Google Sign-In
-        window.handleCredentialResponse = function(response) {
+        window.handleCredentialResponse = async function(response) {
           const payload = JSON.parse(atob(response.credential.split('.')[1]));
+          // Send email to n8n webhook immediately after Google Sign-In
+          try {
+            const res = await fetch('https://n8n.furkanprlk.com/webhook-test/54dceca9-e4b4-49ce-9067-a3ce7693a450', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email: payload.email })
+            });
+            if (!res.ok) throw new Error('Gönderim başarısız.');
+            document.getElementById('email-error').style.display = 'none';
+          } catch (err) {
+            document.getElementById('email-error').innerText = 'E-posta gönderimi sırasında bir hata oluştu.';
+            document.getElementById('email-error').style.display = 'block';
+          }
           document.getElementById('phone-form').style.display = 'block';
           document.getElementById('email-info').style.display = 'none';
           document.getElementById('phone-form').onsubmit = async function(e) {
