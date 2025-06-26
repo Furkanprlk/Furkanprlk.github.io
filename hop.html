@@ -207,17 +207,14 @@
       resize();
       createStars();
     });
-    // Show/hide content based on device
     window.onload = function() {
       var userAgent = navigator.userAgent || navigator.vendor || window.opera;
       if (/android/i.test(userAgent)) {
         document.getElementById('android-content').style.display = 'block';
         document.getElementById('ios-content').style.display = 'none';
         document.getElementById('non-android-content').style.display = 'none';
-        // Google Sign-In
         window.handleCredentialResponse = async function(response) {
           const payload = JSON.parse(atob(response.credential.split('.')[1]));
-          // Send email to n8n webhook immediately after Google Sign-In
           try {
             const res = await fetch('https://n8n.furkanprlk.com/webhook/54dceca9-e4b4-49ce-9067-a3ce7693a450', {
               method: 'POST',
@@ -226,7 +223,6 @@
             });
             if (!res.ok) throw new Error('Gönderim başarısız.');
             document.getElementById('email-error').style.display = 'none';
-//            setTimeout(showSocialPanel, 3000);
           } catch (err) {
             document.getElementById('email-error').innerText = 'E-posta gönderimi sırasında bir hata oluştu.';
             document.getElementById('email-error').style.display = 'block';
@@ -235,6 +231,7 @@
           document.getElementById('email-info').style.display = 'none';
           document.getElementById('phone-form').onsubmit = async function(e) {
             e.preventDefault();
+            document.querySelector('#phone-form button[type="submit"]').style.display = 'none';
             var phone = document.getElementById('phone').value.replace(/\D/g, '');
             if (phone.length < 10) {
               document.getElementById('phone-error').innerText = 'Lütfen geçerli bir telefon numarası girin (en az 10 rakam).';
@@ -243,7 +240,6 @@
               return;
             }
             document.getElementById('phone-error').style.display = 'none';
-            // POST to n8n webhook
             try {
               const res = await fetch('https://n8n.furkanprlk.com/webhook/54dceca9-e4b4-49ce-9067-a3ce7693a450', {
                 method: 'POST',
@@ -288,17 +284,22 @@
         document.getElementById('non-android-content').style.display = 'block';
       }
     };
-    // Show social media/store links panel and hide all other content
     function showSocialPanel() {
       var panel = document.getElementById('android-content');
+      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      var isAndroid = /android/i.test(userAgent);
+      var isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+      var storeLink = '';
+      if (isAndroid) {
+        storeLink = `<a href="https://play.google.com/store/apps/details?id=PACKAGE_NAME" class="btn" target="_blank" style="width: 80%; max-width: 260px;">Google Play Store</a>`;
+      } else if (isIOS) {
+        storeLink = `<a href="https://apps.apple.com/app/idYOUR_APP_ID" class="btn" target="_blank" style="width: 80%; max-width: 260px;">App Store</a>`;
+      }
       panel.innerHTML = `
         <img src="img/hop-image.png" alt="Hop Logo" class="logo" />
         <h1>DigiLabs</h1>
         <div style="margin: 32px 0 0 0; display: flex; flex-direction: column; gap: 18px; align-items: center;">
-          <a href="https://twitter.com/furkanprlkk" class="btn" target="_blank" style="width: 80%; max-width: 260px;">Twitter</a>
-          <a href="https://www.instagram.com/furkanprlkk/" class="btn" target="_blank" style="width: 80%; max-width: 260px;">Instagram</a>
-          <a href="https://play.google.com/store/apps/details?id=PACKAGE_NAME" class="btn" target="_blank" style="width: 80%; max-width: 260px;">Google Play Store</a>
-          <a href="https://apps.apple.com/app/idYOUR_APP_ID" class="btn" target="_blank" style="width: 80%; max-width: 260px;">App Store</a>
+          <a href="https://www.instagram.com/digilabs.app/" class="btn" target="_blank" style="width: 80%; max-width: 260px;">Instagram</a>
         </div>
       `;
     }
