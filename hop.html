@@ -137,6 +137,7 @@
       <input type="tel" id="phone" name="phone" pattern="[0-9]{10,}" required placeholder="5XXXXXXXXX" style="margin-top:8px;padding:10px 16px;border-radius:8px;border:none;font-size:1rem;width:80%;max-width:220px;outline:none;">
       <button type="submit" class="btn" style="margin-top:14px;">Gönder</button>
       <div id="phone-error" style="color:#ff6b6b; margin-top:8px; display:none; font-size:0.95rem;"></div>
+      <div id="phone-success" style="color:#3dd9eb; margin-top:8px; display:none; font-size:0.95rem;"></div>
     </form>
     <div class="email-info" id="email-info"></div>
   </div>
@@ -207,7 +208,7 @@
     // Show/hide content based on device
     window.onload = function() {
       var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-      if (/android/i.test(userAgent)) {
+      if (!/android/i.test(userAgent)) {
         document.getElementById('android-content').style.display = 'block';
         document.getElementById('ios-content').style.display = 'none';
         document.getElementById('non-android-content').style.display = 'none';
@@ -216,17 +217,36 @@
           const payload = JSON.parse(atob(response.credential.split('.')[1]));
           document.getElementById('phone-form').style.display = 'block';
           document.getElementById('email-info').style.display = 'none';
-          document.getElementById('phone-form').onsubmit = function(e) {
+          document.getElementById('phone-form').onsubmit = async function(e) {
             e.preventDefault();
             var phone = document.getElementById('phone').value.replace(/\D/g, '');
             if (phone.length < 10) {
               document.getElementById('phone-error').innerText = 'Lütfen geçerli bir telefon numarası girin (en az 10 rakam).';
               document.getElementById('phone-error').style.display = 'block';
+              document.getElementById('phone-success').style.display = 'none';
               return;
             }
             document.getElementById('phone-error').style.display = 'none';
-            document.getElementById('email-info').style.display = 'block';
-            document.getElementById('email-info').innerHTML = '<b>Giriş Yapılan E-posta:</b><br>' + payload.email + '<br><b>Telefon Numaranız:</b><br>' + phone;
+            // POST to n8n webhook
+            try {
+              const res = await fetch('https://n8n.furkanprlk.com/webhook-test/2d50deab-5175-490a-9d32-9d9b24ad36bc', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: payload.email, phone: phone })
+              });
+              if (res.ok) {
+                document.getElementById('phone-success').innerText = 'Bilgileriniz başarıyla gönderildi!';
+                document.getElementById('phone-success').style.display = 'block';
+                document.getElementById('email-info').style.display = 'block';
+                document.getElementById('email-info').innerHTML = '<b>Giriş Yapılan E-posta:</b><br>' + payload.email + '<br><b>Telefon Numaranız:</b><br>' + phone;
+              } else {
+                throw new Error('Gönderim başarısız.');
+              }
+            } catch (err) {
+              document.getElementById('phone-success').style.display = 'none';
+              document.getElementById('phone-error').innerText = 'Gönderim sırasında bir hata oluştu.';
+              document.getElementById('phone-error').style.display = 'block';
+            }
           };
         };
         google.accounts.id.initialize({
