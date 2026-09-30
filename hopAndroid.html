@@ -86,7 +86,7 @@
 <body>
   <canvas class="stars"></canvas>
   <div class="modern-container" id="android-content">
-    <img src="img/hop-image.png" alt="Hop Logo" class="logo" />
+    <img src="img/hop-image.png" alt="DigiLabs logo" class="logo" width="120" height="120" />
     <h1>DigiLabs</h1>
     <div class="google-btn" id="g_id_signin"></div>
     <div class="email-info" id="email-info"></div>
@@ -149,12 +149,17 @@
         document.getElementById('non-android-content').style.display = 'none';
         // Google Sign-In butonunu başlat
         window.handleCredentialResponse = function(response) {
-          const payload = JSON.parse(atob(response.credential.split('.')[1]));
-          document.getElementById('email-info').style.display = 'block';
-          document.getElementById('email-info').innerHTML = '<b>Giriş Yapılan E-posta:</b><br>' + payload.email;
+          // JWTs are base64url encoded; convert before atob() and decode as UTF-8 (Turkish names).
+          var base64 = response.credential.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');
+          var bytes = Uint8Array.from(atob(base64), function(c) { return c.charCodeAt(0); });
+          const payload = JSON.parse(new TextDecoder().decode(bytes));
+          var info = document.getElementById('email-info');
+          info.style.display = 'block';
+          info.innerHTML = '<b>Giriş Yapılan E-posta:</b><br><span id="info-email"></span>';
+          document.getElementById('info-email').textContent = payload.email;
         };
         google.accounts.id.initialize({
-          client_id: '1092064004747-2v7v6v7v7v7v7v7v7v7v7v7v7v7v7v7.apps.googleusercontent.com',
+          client_id: '177044132361-mr3qlas04qorheejuqem5j7r8qv26k7o.apps.googleusercontent.com',
           callback: handleCredentialResponse
         });
         google.accounts.id.renderButton(

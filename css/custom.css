@@ -8,3 +8,81 @@
   */
 
 /*----------- ADD YOUR CUSTOM CSS STYLES BELOW -----------*/
+
+/* Text logo (replaces the empty template logo image) */
+.navbar .navbar-brand .brand-mark {
+  color: #f3f3f3;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.navbar .navbar-brand .brand-mark::after {
+  color: var(--custom);
+  content: '.';
+}
+
+/* Small footer on the home screen (also visible on mobile, where the fixed blocks are hidden) */
+.home-area .home-footer {
+  bottom: 12px;
+  font-size: 13px;
+  left: 0;
+  margin: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: 3;
+}
+
+.home-area .home-footer a {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.home-area .home-footer a:hover,
+.home-area .home-footer a:focus {
+  color: #fff;
+}
+
+/* Resume: second heading inside a column */
+.resume-section .col-title-spaced {
+  margin-top: 48px;
+}
+
+/* Skills: tools & technologies list */
+.skills-section .tech-title {
+  margin: 48px 0 18px;
+}
+
+.skills-section .tech-list {
+  margin-bottom: 0;
+}
+
+.skills-section .tech-list .list-inline-item {
+  background-color: #161616;
+  border: 1px solid #313131;
+  border-radius: 4px;
+  font-size: 14px;
+  margin: 0 8px 10px 0;
+  padding: 6px 12px;
+}
+
+/* Contact */
+.contact-section .contact-info .list-info #appointment-link {
+  margin-bottom: 13px;
+}
+
+.contact-section .contact-info .contact-privacy {
+  font-size: 13px;
+  margin: 28px 0 0;
+}
+
+.contact-section .contact-info .contact-privacy a {
+  color: #b9b9b9;
+}
+
+/* Keep the longest rotating headline on one line on small phones */
+@media (max-width: 575.98px) {
+  .home-area .home-headline {
+    font-size: 20px;
+  }
+}
