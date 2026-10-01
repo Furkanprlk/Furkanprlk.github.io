@@ -14,6 +14,33 @@
   $(function() {
     // Code here executes When the DOM is loaded...
 
+    /* Buttons that open a section lightbox (e.g. "View my work" on the home screen) */
+    $(document).on('click', '[data-open-section]', function(event) {
+      event.preventDefault();
+      $('.navbar .nav-link[href="#' + $(this).data('open-section') + '"]').trigger('click');
+    });
+
+    /* Contact: copy the e-mail address */
+    $(document).on('click', '.contact-copy', function() {
+      var button = $(this);
+      var text = button.data('copy');
+      var done = function() {
+        button.addClass('is-copied').find('span').text('Copied');
+        setTimeout(function() {
+          button.removeClass('is-copied').find('span').text('Copy');
+        }, 2000);
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(done);
+      } else {
+        var field = $('<textarea readonly>').val(text).css({ position: 'fixed', opacity: 0 }).appendTo('body');
+        field[0].select();
+        document.execCommand('copy');
+        field.remove();
+        done();
+      }
+    });
+
     /* Project details: show the clicked thumbnail in the image stage */
     $(document).on('click', '.project-detail .stage-thumbs button', function() {
       var thumb = $(this);

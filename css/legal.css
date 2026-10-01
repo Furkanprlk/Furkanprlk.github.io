@@ -1,0 +1,147 @@
+/*----------- Legal pages (privacy policy, EULA, app terms) -----------*/
+:root {
+  --accent: #dc3545;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #111;
+  color: #bdbdbd;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  font-size: 15.5px;
+  line-height: 1.8;
+  margin: 0;
+  padding: 0;
+}
+
+.legal-header {
+  border-bottom: 1px solid #222;
+}
+
+.legal-header-inner,
+.legal {
+  margin: 0 auto;
+  max-width: 820px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.legal-header-inner {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.legal-brand {
+  color: #f3f3f3;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+.legal-brand span {
+  color: var(--accent);
+}
+
+.legal-back {
+  color: #bdbdbd;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.legal-back:hover,
+.legal-back:focus {
+  color: #fff;
+}
+
+.legal {
+  padding-bottom: 72px;
+  padding-top: 52px;
+}
+
+.legal h1,
+.legal--generated>strong:first-child {
+  color: #f3f3f3;
+  display: block;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 10px;
+  text-align: left;
+}
+
+.legal h2,
+.legal--generated p>strong:only-child {
+  color: #f0f0f0;
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 40px 0 12px;
+}
+
+.legal p,
+.legal li {
+  text-align: left;
+}
+
+.legal ul {
+  padding-left: 20px;
+}
+
+.legal li::marker {
+  color: var(--accent);
+}
+
+.legal a {
+  color: #ef6b78;
+}
+
+.legal a:hover,
+.legal a:focus {
+  color: #fff;
+}
+
+.legal strong,
+.legal b {
+  color: #e6e6e6;
+}
+
+.legal .updated {
+  color: #8d8d8d;
+  font-size: 14px;
+  margin-top: 0;
+}
+
+.legal-footer {
+  border-top: 1px solid #222;
+  color: #7a7a7a;
+  font-size: 13px;
+  padding: 24px;
+  text-align: center;
+}
+
+.legal-footer a {
+  color: #a9a9a9;
+}
+
+@media (max-width: 575.98px) {
+  body {
+    font-size: 15px;
+  }
+
+  .legal {
+    padding-top: 36px;
+  }
+
+  .legal h1,
+  .legal--generated>strong:first-child {
+    font-size: 28px;
+  }
+}
