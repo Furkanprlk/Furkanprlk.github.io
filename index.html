@@ -364,116 +364,125 @@
               <div class="row">
                 <!-- Filter nav-->
                 <div class="col-12">
-                  <ul class="list-inline filter-control" role="group" aria-label="Filter Control">
-                    <li class="list-inline-item tab-active" data-filter="*">All</li>
-                    <li class="list-inline-item" data-filter=".professional">Professional</li>
-                    <li class="list-inline-item" data-filter=".hardware">Embedded &amp; Hardware</li>
-                    <li class="list-inline-item" data-filter=".games">Games</li>
-                    <li class="list-inline-item" data-filter=".personal">Personal</li>
+                  <ul class="list-inline filter-control" role="group" aria-label="Filter projects">
+                    <li class="list-inline-item tab-active" data-filter="*"><button type="button">All</button></li>
+                    <li class="list-inline-item" data-filter=".professional"><button type="button">Professional</button></li>
+                    <li class="list-inline-item" data-filter=".hardware"><button type="button">Embedded &amp; Hardware</button></li>
+                    <li class="list-inline-item" data-filter=".games"><button type="button">Games</button></li>
+                    <li class="list-inline-item" data-filter=".personal"><button type="button">Personal</button></li>
                   </ul>
                 </div>
               </div>
-              <!-- Thumbnail list (each item opens its project details below)-->
+              <!-- Project cards (each one opens its project details below)-->
               <div class="portfolio-grid row">
                 <!-- Single item Basarsolver-->
-                <div class="single-item col-6 col-lg-4 professional"><a class="portfolio-item" href="#project-basarsolver" data-lightbox aria-label="Basarsolver – project details">
-                  <div class="portfolio-wrapper"><img class="img-fluid" alt="Basarsolver route optimization illustration" src="img/basarsolver.jpg" width="680" height="727">
-                    <div class="item-content">
-                      <p class="item-summary">Routing, TSP, VRP and isochrone services on raw map data.</p><span class="content-more">View details</span>
+                <div class="single-item col-12 col-md-6 col-lg-4 professional">
+                  <a class="project-card" href="#project-basarsolver" data-lightbox>
+                    <div class="card-media"><img class="media-backdrop" src="img/basarsolver.jpg" alt="" aria-hidden="true"><img class="media-image" src="img/basarsolver.jpg" alt="Basarsolver route optimization illustration" width="680" height="727"></div>
+                    <div class="card-body">
+                      <p class="card-meta"><span class="card-category">Professional</span><span>2023 – Present</span></p>
+                      <h3 class="card-title">Basarsolver</h3>
+                      <p class="card-summary">Routing, TSP, VRP and isochrone services on raw map data.</p>
+                      <span class="card-more">View project<i class="icon ion-md-arrow-forward" aria-hidden="true"></i></span>
                     </div>
-                  </div>
-                  <div class="item-caption">
-                    <h3 class="h6 content-title">Basarsolver</h3><span class="item-meta">Professional · 2023 – Present</span>
-                  </div>
-                </a></div>
-                <!-- Single item Leopard 2A4 Test Consoles-->
-                <div class="single-item col-6 col-lg-4 hardware"><a class="portfolio-item" href="#project-leopard" data-lightbox aria-label="Leopard 2A4 Test Consoles – project details">
-                  <div class="portfolio-wrapper"><img class="img-fluid" alt="Leopard 2A4 transmission control PCB next to its layout on screen" src="img/item-1.jpg" width="680" height="727">
-                    <div class="item-content">
-                      <p class="item-summary">Test consoles and PCB localization for Leopard 2A4 tank subsystems.</p><span class="content-more">View details</span>
-                    </div>
-                  </div>
-                  <div class="item-caption">
-                    <h3 class="h6 content-title">Leopard 2A4 Test Consoles</h3><span class="item-meta">Embedded &amp; Hardware · 2022 – 2023</span>
-                  </div>
-                </a></div>
-                <!-- Single item High-Speed Flame Detector-->
-                <div class="single-item col-6 col-lg-4 hardware"><a class="portfolio-item" href="#project-flame" data-lightbox aria-label="High-Speed Flame Detector – project details">
-                  <div class="portfolio-wrapper"><img class="img-fluid" alt="Flame detector PCB designs" src="img/embedded-3.jpg" width="680" height="727">
-                    <div class="item-content">
-                      <p class="item-summary">UV/IR flame sensor: PCB design and bare-metal STM32 firmware.</p><span class="content-more">View details</span>
-                    </div>
-                  </div>
-                  <div class="item-caption">
-                    <h3 class="h6 content-title">High-Speed Flame Detector</h3><span class="item-meta">Embedded &amp; Hardware · 2021 – 2022</span>
-                  </div>
-                </a></div>
+                  </a>
+                </div>
                 <!-- Single item En Gündem Haber-->
-                <div class="single-item col-6 col-lg-4 personal"><a class="portfolio-item" href="#project-engundem" data-lightbox aria-label="En Gündem Haber – project details">
-                  <div class="portfolio-wrapper"><img class="img-fluid" alt="En Gündem Haber news website" src="img/pers-1.jpg" width="680" height="727">
-                    <div class="item-content">
-                      <p class="item-summary">A news site run by a bot: research, images and headlines are automated.</p><span class="content-more">View details</span>
+                <div class="single-item col-12 col-md-6 col-lg-4 personal">
+                  <a class="project-card" href="#project-engundem" data-lightbox>
+                    <div class="card-media"><img class="media-backdrop" src="img/pers-1.jpg" alt="" aria-hidden="true"><img class="media-image" src="img/pers-1.jpg" alt="En Gündem Haber news website" width="680" height="727"></div>
+                    <div class="card-body">
+                      <p class="card-meta"><span class="card-category">Personal</span><span>2023</span></p>
+                      <h3 class="card-title">En Gündem Haber</h3>
+                      <p class="card-summary">A news site run by a bot: research, images and headlines are automated.</p>
+                      <span class="card-more">View project<i class="icon ion-md-arrow-forward" aria-hidden="true"></i></span>
                     </div>
-                  </div>
-                  <div class="item-caption">
-                    <h3 class="h6 content-title">En Gündem Haber</h3><span class="item-meta">Personal · 2023</span>
-                  </div>
-                </a></div>
+                  </a>
+                </div>
+                <!-- Single item Leopard 2A4 Test Consoles-->
+                <div class="single-item col-12 col-md-6 col-lg-4 hardware">
+                  <a class="project-card" href="#project-leopard" data-lightbox>
+                    <div class="card-media"><img class="media-backdrop" src="img/item-1.jpg" alt="" aria-hidden="true"><img class="media-image" src="img/item-1.jpg" alt="Leopard 2A4 transmission control PCB next to its layout on screen" width="680" height="727"></div>
+                    <div class="card-body">
+                      <p class="card-meta"><span class="card-category">Embedded &amp; Hardware</span><span>2022 – 2023</span></p>
+                      <h3 class="card-title">Leopard 2A4 Test Consoles</h3>
+                      <p class="card-summary">Test consoles and PCB localization for Leopard 2A4 tank subsystems.</p>
+                      <span class="card-more">View project<i class="icon ion-md-arrow-forward" aria-hidden="true"></i></span>
+                    </div>
+                  </a>
+                </div>
                 <!-- Single item Car Parking Extreme-->
-                <div class="single-item col-6 col-lg-4 games"><a class="portfolio-item" href="#project-carparking" data-lightbox aria-label="Car Parking Extreme – project details">
-                  <div class="portfolio-wrapper"><img class="img-fluid" alt="Car Parking Extreme game cover" src="img/pers-2.jpg" width="680" height="727">
-                    <div class="item-content">
-                      <p class="item-summary">Car parking game for Android, built with Unity.</p><span class="content-more">View details</span>
+                <div class="single-item col-12 col-md-6 col-lg-4 games">
+                  <a class="project-card" href="#project-carparking" data-lightbox>
+                    <div class="card-media"><img class="media-backdrop" src="img/pers-2.jpg" alt="" aria-hidden="true"><img class="media-image" src="img/pers-2.jpg" alt="Car Parking Extreme game cover" width="680" height="727"></div>
+                    <div class="card-body">
+                      <p class="card-meta"><span class="card-category">Games</span><span>2022</span></p>
+                      <h3 class="card-title">Car Parking Extreme</h3>
+                      <p class="card-summary">Car parking game for Android, built with Unity.</p>
+                      <span class="card-more">View project<i class="icon ion-md-arrow-forward" aria-hidden="true"></i></span>
                     </div>
-                  </div>
-                  <div class="item-caption">
-                    <h3 class="h6 content-title">Car Parking Extreme</h3><span class="item-meta">Games · 2022</span>
-                  </div>
-                </a></div>
+                  </a>
+                </div>
+                <!-- Single item High-Speed Flame Detector-->
+                <div class="single-item col-12 col-md-6 col-lg-4 hardware">
+                  <a class="project-card" href="#project-flame" data-lightbox>
+                    <div class="card-media"><img class="media-backdrop" src="img/embedded-3.jpg" alt="" aria-hidden="true"><img class="media-image" src="img/embedded-3.jpg" alt="Flame detector PCB designs" width="680" height="727"></div>
+                    <div class="card-body">
+                      <p class="card-meta"><span class="card-category">Embedded &amp; Hardware</span><span>2021 – 2022</span></p>
+                      <h3 class="card-title">High-Speed Flame Detector</h3>
+                      <p class="card-summary">UV/IR flame sensor: PCB design and bare-metal STM32 firmware.</p>
+                      <span class="card-more">View project<i class="icon ion-md-arrow-forward" aria-hidden="true"></i></span>
+                    </div>
+                  </a>
+                </div>
                 <!-- Single item Extreme City Car Driving-->
-                <div class="single-item col-6 col-lg-4 games"><a class="portfolio-item" href="#project-citydriving" data-lightbox aria-label="Extreme City Car Driving – project details">
-                  <div class="portfolio-wrapper"><img class="img-fluid" alt="Extreme City Car Driving game cover" src="img/pers-3.jpg" width="680" height="727">
-                    <div class="item-content">
-                      <p class="item-summary">City car driving game for Android, built with Unity.</p><span class="content-more">View details</span>
+                <div class="single-item col-12 col-md-6 col-lg-4 games">
+                  <a class="project-card" href="#project-citydriving" data-lightbox>
+                    <div class="card-media"><img class="media-backdrop" src="img/pers-3.jpg" alt="" aria-hidden="true"><img class="media-image" src="img/pers-3.jpg" alt="Extreme City Car Driving game cover" width="680" height="727"></div>
+                    <div class="card-body">
+                      <p class="card-meta"><span class="card-category">Games</span><span>2021</span></p>
+                      <h3 class="card-title">Extreme City Car Driving</h3>
+                      <p class="card-summary">City car driving game for Android, built with Unity.</p>
+                      <span class="card-more">View project<i class="icon ion-md-arrow-forward" aria-hidden="true"></i></span>
                     </div>
-                  </div>
-                  <div class="item-caption">
-                    <h3 class="h6 content-title">Extreme City Car Driving</h3><span class="item-meta">Games · 2021</span>
-                  </div>
-                </a></div>
-                <!-- Single item DesignNOW Hackathon – 1st Place-->
-                <div class="single-item col-6 col-lg-4 hardware"><a class="portfolio-item" href="#project-designnow" data-lightbox aria-label="DesignNOW Hackathon – 1st Place – project details">
-                  <div class="portfolio-wrapper"><img class="img-fluid" alt="DesignNOW plant irrigation system PCB render" src="img/item-2.jpg" width="680" height="727">
-                    <div class="item-content">
-                      <p class="item-summary">1st place of 77 teams with a plant irrigation system.</p><span class="content-more">View details</span>
+                  </a>
+                </div>
+                <!-- Single item DesignNOW Hackathon-->
+                <div class="single-item col-12 col-md-6 col-lg-4 hardware">
+                  <a class="project-card" href="#project-designnow" data-lightbox>
+                    <div class="card-media"><img class="media-backdrop" src="img/item-2.jpg" alt="" aria-hidden="true"><img class="media-image" src="img/item-2.jpg" alt="DesignNOW plant irrigation system PCB render" width="680" height="727"></div>
+                    <div class="card-body">
+                      <p class="card-meta"><span class="card-category">Embedded &amp; Hardware</span><span>2021</span></p>
+                      <h3 class="card-title">DesignNOW Hackathon</h3>
+                      <p class="card-summary">1st place of 77 teams with a plant irrigation system.</p>
+                      <span class="card-more">View project<i class="icon ion-md-arrow-forward" aria-hidden="true"></i></span>
                     </div>
-                  </div>
-                  <div class="item-caption">
-                    <h3 class="h6 content-title">DesignNOW Hackathon – 1st Place</h3><span class="item-meta">Embedded &amp; Hardware · 2021</span>
-                  </div>
-                </a></div>
+                  </a>
+                </div>
                 <!-- Single item Radio Telescope-->
-                <div class="single-item col-6 col-lg-4 personal"><a class="portfolio-item" href="#project-telescope" data-lightbox aria-label="Radio Telescope – project details">
-                  <div class="portfolio-wrapper"><img class="img-fluid" alt="Home-built radio telescope dish on its azimuth mount" src="img/pers-4.jpg" width="680" height="727">
-                    <div class="item-content">
-                      <p class="item-summary">Wi-Fi controlled azimuth-axis radio telescope with a web interface.</p><span class="content-more">View details</span>
+                <div class="single-item col-12 col-md-6 col-lg-4 personal">
+                  <a class="project-card" href="#project-telescope" data-lightbox>
+                    <div class="card-media"><img class="media-backdrop" src="img/pers-4.jpg" alt="" aria-hidden="true"><img class="media-image" src="img/pers-4.jpg" alt="Home-built radio telescope dish on its azimuth mount" width="680" height="727"></div>
+                    <div class="card-body">
+                      <p class="card-meta"><span class="card-category">Personal</span><span>2020</span></p>
+                      <h3 class="card-title">Radio Telescope</h3>
+                      <p class="card-summary">Wi-Fi controlled azimuth-axis radio telescope with a web interface.</p>
+                      <span class="card-more">View project<i class="icon ion-md-arrow-forward" aria-hidden="true"></i></span>
                     </div>
-                  </div>
-                  <div class="item-caption">
-                    <h3 class="h6 content-title">Radio Telescope</h3><span class="item-meta">Personal · 2020</span>
-                  </div>
-                </a></div>
+                  </a>
+                </div>
                 <!-- Single item Lodos Electromobile-->
-                <div class="single-item col-6 col-lg-4 hardware"><a class="portfolio-item" href="#project-lodos" data-lightbox aria-label="Lodos Electromobile – project details">
-                  <div class="portfolio-wrapper"><img class="img-fluid" alt="Lodos Electromobile team with their electric car" src="img/lodos-2.jpg" width="680" height="727">
-                    <div class="item-content">
-                      <p class="item-summary">Team captain; vehicle control system, BMS and Li-ion charger.</p><span class="content-more">View details</span>
+                <div class="single-item col-12 col-md-6 col-lg-4 hardware">
+                  <a class="project-card" href="#project-lodos" data-lightbox>
+                    <div class="card-media"><img class="media-backdrop" src="img/lodos-2.jpg" alt="" aria-hidden="true"><img class="media-image" src="img/lodos-2.jpg" alt="Lodos Electromobile team with their electric car" width="860" height="919"></div>
+                    <div class="card-body">
+                      <p class="card-meta"><span class="card-category">Embedded &amp; Hardware</span><span>2018 – 2020</span></p>
+                      <h3 class="card-title">Lodos Electromobile</h3>
+                      <p class="card-summary">Team captain; vehicle control system, BMS and Li-ion charger.</p>
+                      <span class="card-more">View project<i class="icon ion-md-arrow-forward" aria-hidden="true"></i></span>
                     </div>
-                  </div>
-                  <div class="item-caption">
-                    <h3 class="h6 content-title">Lodos Electromobile</h3><span class="item-meta">Embedded &amp; Hardware · 2018 – 2020</span>
-                  </div>
-                </a></div>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -566,225 +575,373 @@
       </div>
     </div>
   </div>
-    <!-- Project details (opened in a lightbox from the portfolio grid)-->
+    <!-- Project details (opened in a lightbox from the portfolio cards)-->
     <div class="project-details">
       <article class="lity-hide project-detail" id="project-basarsolver" aria-labelledby="project-basarsolver-title">
-        <a class="project-cover" href="img/basarsolver.jpg" data-lightbox aria-label="Basarsolver – open image in full size"><img src="img/basarsolver.jpg" alt="Basarsolver route optimization illustration" loading="lazy"></a>
-        <div class="project-body">
-          <p class="project-meta"><span>Professional</span><span>2023 – Present</span><span>Başarsoft Information Technology</span></p>
-          <h3 class="project-title" id="project-basarsolver-title">Basarsolver</h3>
-          <p class="project-lead">Basarsolver is the optimization engine behind Başarsoft's location products. I lead its optimization and development, working on the services that turn raw map data into routes, reachable areas and delivery plans.</p>
-          <h4 class="project-subtitle">What I did</h4>
-          <ul class="project-list">
-            <li>Leading the optimization and development of the company’s core routing, Traveling Salesman (TSP), Vehicle Routing (VRP) and isochrone services.</li>
-            <li>Developing the time-distance matrix service that calculates travel times and distances between points on raw map data.</li>
-            <li>Built a TSP with time windows (TSPTW) solution tailored to the requirements of Yurtiçi Kargo to make their delivery operations more efficient.</li>
-          </ul>
-          <h4 class="project-subtitle">Tools &amp; technologies</h4>
-          <ul class="list-inline project-tags">
-            <li class="list-inline-item">Routing</li>
-            <li class="list-inline-item">TSP / TSPTW</li>
-            <li class="list-inline-item">VRP</li>
-            <li class="list-inline-item">Isochrones</li>
-            <li class="list-inline-item">Distance matrix</li>
-            <li class="list-inline-item">Optimization algorithms</li>
-          </ul>
+        <div class="project-stage">
+          <img class="stage-backdrop" src="img/basarsolver.jpg" alt="" aria-hidden="true">
+          <a class="stage-link" href="img/basarsolver.jpg" data-lightbox aria-label="Open the image in full size"><img class="stage-image" src="img/basarsolver.jpg" alt="Basarsolver route optimization illustration" width="680" height="727"><span class="stage-zoom" aria-hidden="true"><i class="icon ion-md-expand"></i></span></a>
         </div>
-      </article>
-      <article class="lity-hide project-detail" id="project-leopard" aria-labelledby="project-leopard-title">
-        <a class="project-cover" href="img/item-1.jpg" data-lightbox aria-label="Leopard 2A4 Test Consoles – open image in full size"><img src="img/item-1.jpg" alt="Leopard 2A4 transmission control PCB next to its layout on screen" loading="lazy"></a>
-        <div class="project-body">
-          <p class="project-meta"><span>Embedded &amp; Hardware</span><span>2022 – 2023</span><span>MK Mekatronik Defence Technology</span></p>
-          <h3 class="project-title" id="project-leopard-title">Leopard 2A4 Test Consoles</h3>
-          <p class="project-lead">At MK Mekatronik Defence Technology I worked on the localization of Leopard 2A4 tank subsystems used by the Turkish Armed Forces: test consoles, their processor architectures and reverse-engineered replacement boards.</p>
-          <h4 class="project-subtitle">What I did</h4>
-          <ul class="project-list">
-            <li><strong>Turret Stabilization Test Console</strong> (04/2022 – 04/2023): designed a processor architecture that integrates 14 separate circuit boards.</li>
-            <li><strong>Location Transmitter Console</strong> (01/2023 – 04/2023): designed a processor architecture that integrates 6 circuit boards.</li>
-            <li><strong>Gear Test Console</strong> (04/2022 – 03/2023): reverse-engineered the transmission control board for local production and replicated the complex six-layer PCB.</li>
-            <li>Firmware for STM32 and PIC microcontrollers in C/C++.</li>
-          </ul>
-          <h4 class="project-subtitle">Tools &amp; technologies</h4>
-          <ul class="list-inline project-tags">
-            <li class="list-inline-item">EAGLE</li>
-            <li class="list-inline-item">KiCad</li>
-            <li class="list-inline-item">Proteus</li>
-            <li class="list-inline-item">STM32 HAL</li>
-            <li class="list-inline-item">PIC</li>
-            <li class="list-inline-item">MPLAB</li>
-            <li class="list-inline-item">Keil uVision</li>
-            <li class="list-inline-item">C / C++</li>
-          </ul>
-        </div>
-      </article>
-      <article class="lity-hide project-detail" id="project-flame" aria-labelledby="project-flame-title">
-        <a class="project-cover" href="img/embedded-3.jpg" data-lightbox aria-label="High-Speed Flame Detector – open image in full size"><img src="img/embedded-3.jpg" alt="Flame detector PCB designs" loading="lazy"></a>
-        <div class="project-body">
-          <p class="project-meta"><span>Embedded &amp; Hardware</span><span>2021 – 2022</span><span>Savendel Electronics Control Systems</span></p>
-          <h3 class="project-title" id="project-flame-title">High-Speed Flame Detector</h3>
-          <p class="project-lead">A high-speed flame detection sensor developed at Savendel Electronics Control Systems. It detects flames by comparing ultraviolet (UV) and infrared (IR) light, which makes detection more accurate and reliable in fire safety applications.</p>
-          <h4 class="project-subtitle">What I did</h4>
-          <ul class="project-list">
-            <li>Developed the detection method that compares UV and IR light wavelengths.</li>
-            <li>Designed the circuit boards in EAGLE.</li>
-            <li>Wrote bare-metal firmware for an STM32F1 microcontroller in C.</li>
-          </ul>
-          <h4 class="project-subtitle">Tools &amp; technologies</h4>
-          <ul class="list-inline project-tags">
-            <li class="list-inline-item">STM32F1</li>
-            <li class="list-inline-item">Bare-metal C</li>
-            <li class="list-inline-item">EAGLE</li>
-            <li class="list-inline-item">Keil uVision</li>
-            <li class="list-inline-item">UV / IR sensing</li>
-          </ul>
+        <div class="project-content">
+          <header class="project-header">
+            <p class="project-kicker">Professional</p>
+            <h3 class="project-title" id="project-basarsolver-title">Basarsolver</h3>
+            <p class="project-lead">Basarsolver is the optimization engine behind Başarsoft's location products. I lead its optimization and development, working on the services that turn raw map data into routes, reachable areas and delivery plans.</p>
+          </header>
+          <div class="project-columns">
+            <section class="project-main">
+              <h4 class="project-subtitle">What I did</h4>
+              <ul class="project-list">
+                <li>Leading the optimization and development of the company’s core routing, Traveling Salesman (TSP), Vehicle Routing (VRP) and isochrone services.</li>
+                <li>Developing the time-distance matrix service that calculates travel times and distances between points on raw map data.</li>
+                <li>Built a TSP with time windows (TSPTW) solution tailored to the requirements of Yurtiçi Kargo to make their delivery operations more efficient.</li>
+              </ul>
+            </section>
+            <aside class="project-aside">
+              <h4 class="project-subtitle">Project details</h4>
+              <dl class="project-facts">
+                <dt>Organization</dt><dd>Başarsoft Information Technology</dd>
+                <dt>Role</dt><dd>Software Developer Specialist</dd>
+                <dt>Period</dt><dd>2023 – Present</dd>
+              </dl>
+              <h4 class="project-subtitle">Tools &amp; technologies</h4>
+              <ul class="list-unstyled project-tags">
+                <li>Routing</li>
+                <li>TSP / TSPTW</li>
+                <li>VRP</li>
+                <li>Isochrones</li>
+                <li>Distance matrix</li>
+                <li>Optimization algorithms</li>
+              </ul>
+            </aside>
+          </div>
         </div>
       </article>
       <article class="lity-hide project-detail" id="project-engundem" aria-labelledby="project-engundem-title">
-        <a class="project-cover" href="img/pers-1.jpg" data-lightbox aria-label="En Gündem Haber – open image in full size"><img src="img/pers-1.jpg" alt="En Gündem Haber news website" loading="lazy"></a>
-        <div class="project-body">
-          <p class="project-meta"><span>Personal</span><span>2023</span></p>
-          <h3 class="project-title" id="project-engundem-title">En Gündem Haber</h3>
-          <p class="project-lead">En Gündem Haber is a Turkish news website run by a bot I built. The bot automatically researches current news, finds a relevant image for each story and writes its headline, so the site stays up to date without manual editing.</p>
-          <h4 class="project-subtitle">What I did</h4>
-          <ul class="project-list">
-            <li>Designed and built the news bot end to end.</li>
-            <li>Automatic news research to find current stories.</li>
-            <li>Finding a relevant image for every story.</li>
-            <li>Generating a headline for each news item and publishing it on the website.</li>
-          </ul>
-          <h4 class="project-subtitle">Tools &amp; technologies</h4>
-          <ul class="list-inline project-tags">
-            <li class="list-inline-item">Automation</li>
-            <li class="list-inline-item">News bot</li>
-            <li class="list-inline-item">Web</li>
-          </ul>
-          <div class="project-links"><a class="btn button-main button-scheme" href="https://engundemhaber.com.tr" target="_blank" rel="noopener">Visit the website</a></div>
+        <div class="project-stage">
+          <img class="stage-backdrop" src="img/pers-1.jpg" alt="" aria-hidden="true">
+          <a class="stage-link" href="img/pers-1.jpg" data-lightbox aria-label="Open the image in full size"><img class="stage-image" src="img/pers-1.jpg" alt="En Gündem Haber news website" width="680" height="727"><span class="stage-zoom" aria-hidden="true"><i class="icon ion-md-expand"></i></span></a>
+        </div>
+        <div class="project-content">
+          <header class="project-header">
+            <p class="project-kicker">Personal</p>
+            <h3 class="project-title" id="project-engundem-title">En Gündem Haber</h3>
+            <p class="project-lead">En Gündem Haber is a Turkish news website run by a bot I built. The bot automatically researches current news, finds a relevant image for each story and writes its headline, so the site stays up to date without manual editing.</p>
+            <div class="project-actions"><a class="btn button-main button-scheme" href="https://engundemhaber.com.tr" target="_blank" rel="noopener">Visit the website<i class="icon ion-md-open" aria-hidden="true"></i></a></div>
+          </header>
+          <div class="project-columns">
+            <section class="project-main">
+              <h4 class="project-subtitle">What I did</h4>
+              <ul class="project-list">
+                <li>Designed and built the news bot end to end.</li>
+                <li>Automatic news research to find current stories.</li>
+                <li>Finding a relevant image for every story.</li>
+                <li>Generating a headline for each news item and publishing it on the website.</li>
+              </ul>
+            </section>
+            <aside class="project-aside">
+              <h4 class="project-subtitle">Project details</h4>
+              <dl class="project-facts">
+                <dt>Type</dt><dd>Personal project</dd>
+                <dt>Period</dt><dd>2023</dd>
+              </dl>
+              <h4 class="project-subtitle">Tools &amp; technologies</h4>
+              <ul class="list-unstyled project-tags">
+                <li>Automation</li>
+                <li>News bot</li>
+                <li>Web</li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </article>
+      <article class="lity-hide project-detail" id="project-leopard" aria-labelledby="project-leopard-title">
+        <div class="project-stage">
+          <img class="stage-backdrop" src="img/item-1.jpg" alt="" aria-hidden="true">
+          <a class="stage-link" href="img/item-1.jpg" data-lightbox aria-label="Open the image in full size"><img class="stage-image" src="img/item-1.jpg" alt="Leopard 2A4 transmission control PCB next to its layout on screen" width="680" height="727"><span class="stage-zoom" aria-hidden="true"><i class="icon ion-md-expand"></i></span></a>
+        </div>
+        <div class="project-content">
+          <header class="project-header">
+            <p class="project-kicker">Embedded &amp; Hardware</p>
+            <h3 class="project-title" id="project-leopard-title">Leopard 2A4 Test Consoles</h3>
+            <p class="project-lead">At MK Mekatronik Defence Technology I worked on the localization of Leopard 2A4 tank subsystems used by the Turkish Armed Forces: test consoles, their processor architectures and reverse-engineered replacement boards.</p>
+          </header>
+          <div class="project-columns">
+            <section class="project-main">
+              <h4 class="project-subtitle">What I did</h4>
+              <ul class="project-list">
+                <li><strong>Turret Stabilization Test Console</strong> (04/2022 – 04/2023): designed a processor architecture that integrates 14 separate circuit boards.</li>
+                <li><strong>Location Transmitter Console</strong> (01/2023 – 04/2023): designed a processor architecture that integrates 6 circuit boards.</li>
+                <li><strong>Gear Test Console</strong> (04/2022 – 03/2023): reverse-engineered the transmission control board for local production and replicated the complex six-layer PCB.</li>
+                <li>Firmware for STM32 and PIC microcontrollers in C/C++.</li>
+              </ul>
+            </section>
+            <aside class="project-aside">
+              <h4 class="project-subtitle">Project details</h4>
+              <dl class="project-facts">
+                <dt>Organization</dt><dd>MK Mekatronik Defence Technology</dd>
+                <dt>Role</dt><dd>Research &amp; Development Engineer</dd>
+                <dt>Period</dt><dd>2022 – 2023</dd>
+              </dl>
+              <h4 class="project-subtitle">Tools &amp; technologies</h4>
+              <ul class="list-unstyled project-tags">
+                <li>EAGLE</li>
+                <li>KiCad</li>
+                <li>Proteus</li>
+                <li>STM32 HAL</li>
+                <li>PIC</li>
+                <li>MPLAB</li>
+                <li>Keil uVision</li>
+                <li>C / C++</li>
+              </ul>
+            </aside>
+          </div>
         </div>
       </article>
       <article class="lity-hide project-detail" id="project-carparking" aria-labelledby="project-carparking-title">
-        <a class="project-cover" href="img/pers-2.jpg" data-lightbox aria-label="Car Parking Extreme – open image in full size"><img src="img/pers-2.jpg" alt="Car Parking Extreme game cover" loading="lazy"></a>
-        <div class="project-body">
-          <p class="project-meta"><span>Games</span><span>2022</span><span>Quartz Games</span></p>
-          <h3 class="project-title" id="project-carparking-title">Car Parking Extreme</h3>
-          <p class="project-lead">A car parking game I developed in my spare time and published on Google Play under the name Quartz Games.</p>
-          <h4 class="project-subtitle">What I did</h4>
-          <ul class="project-list">
-            <li>Designed and developed the game in Unity with C#.</li>
-            <li>Published it on Google Play.</li>
-          </ul>
-          <h4 class="project-subtitle">Tools &amp; technologies</h4>
-          <ul class="list-inline project-tags">
-            <li class="list-inline-item">Unity</li>
-            <li class="list-inline-item">C#</li>
-            <li class="list-inline-item">Android</li>
-            <li class="list-inline-item">Google Play</li>
-          </ul>
-          <div class="project-links"><a class="btn button-main button-scheme" href="https://play.google.com/store/apps/details?id=com.QuartzGames.CarParkingExtreme" target="_blank" rel="noopener">Get it on Google Play</a></div>
+        <div class="project-stage">
+          <img class="stage-backdrop" src="img/pers-2.jpg" alt="" aria-hidden="true">
+          <a class="stage-link" href="img/pers-2.jpg" data-lightbox aria-label="Open the image in full size"><img class="stage-image" src="img/pers-2.jpg" alt="Car Parking Extreme game cover" width="680" height="727"><span class="stage-zoom" aria-hidden="true"><i class="icon ion-md-expand"></i></span></a>
+        </div>
+        <div class="project-content">
+          <header class="project-header">
+            <p class="project-kicker">Games</p>
+            <h3 class="project-title" id="project-carparking-title">Car Parking Extreme</h3>
+            <p class="project-lead">A car parking game I developed in my spare time and published on Google Play under the name Quartz Games.</p>
+            <div class="project-actions"><a class="btn button-main button-scheme" href="https://play.google.com/store/apps/details?id=com.QuartzGames.CarParkingExtreme" target="_blank" rel="noopener">Get it on Google Play<i class="icon ion-md-open" aria-hidden="true"></i></a></div>
+          </header>
+          <div class="project-columns">
+            <section class="project-main">
+              <h4 class="project-subtitle">What I did</h4>
+              <ul class="project-list">
+                <li>Designed and developed the game in Unity with C#.</li>
+                <li>Published it on Google Play.</li>
+              </ul>
+            </section>
+            <aside class="project-aside">
+              <h4 class="project-subtitle">Project details</h4>
+              <dl class="project-facts">
+                <dt>Publisher</dt><dd>Quartz Games</dd>
+                <dt>Platform</dt><dd>Android</dd>
+                <dt>Period</dt><dd>2022</dd>
+              </dl>
+              <h4 class="project-subtitle">Tools &amp; technologies</h4>
+              <ul class="list-unstyled project-tags">
+                <li>Unity</li>
+                <li>C#</li>
+                <li>Android</li>
+                <li>Google Play</li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </article>
+      <article class="lity-hide project-detail" id="project-flame" aria-labelledby="project-flame-title">
+        <div class="project-stage">
+          <img class="stage-backdrop" src="img/embedded-3.jpg" alt="" aria-hidden="true">
+          <a class="stage-link" href="img/embedded-3.jpg" data-lightbox aria-label="Open the image in full size"><img class="stage-image" src="img/embedded-3.jpg" alt="Flame detector PCB designs" width="680" height="727"><span class="stage-zoom" aria-hidden="true"><i class="icon ion-md-expand"></i></span></a>
+        </div>
+        <div class="project-content">
+          <header class="project-header">
+            <p class="project-kicker">Embedded &amp; Hardware</p>
+            <h3 class="project-title" id="project-flame-title">High-Speed Flame Detector</h3>
+            <p class="project-lead">A high-speed flame detection sensor developed at Savendel Electronics Control Systems. It detects flames by comparing ultraviolet (UV) and infrared (IR) light, which makes detection more accurate and reliable in fire safety applications.</p>
+          </header>
+          <div class="project-columns">
+            <section class="project-main">
+              <h4 class="project-subtitle">What I did</h4>
+              <ul class="project-list">
+                <li>Developed the detection method that compares UV and IR light wavelengths.</li>
+                <li>Designed the circuit boards in EAGLE.</li>
+                <li>Wrote bare-metal firmware for an STM32F1 microcontroller in C.</li>
+              </ul>
+            </section>
+            <aside class="project-aside">
+              <h4 class="project-subtitle">Project details</h4>
+              <dl class="project-facts">
+                <dt>Organization</dt><dd>Savendel Electronics Control Systems</dd>
+                <dt>Role</dt><dd>Research &amp; Development Engineer</dd>
+                <dt>Period</dt><dd>2021 – 2022</dd>
+              </dl>
+              <h4 class="project-subtitle">Tools &amp; technologies</h4>
+              <ul class="list-unstyled project-tags">
+                <li>STM32F1</li>
+                <li>Bare-metal C</li>
+                <li>EAGLE</li>
+                <li>Keil uVision</li>
+                <li>UV / IR sensing</li>
+              </ul>
+            </aside>
+          </div>
         </div>
       </article>
       <article class="lity-hide project-detail" id="project-citydriving" aria-labelledby="project-citydriving-title">
-        <a class="project-cover" href="img/pers-3.jpg" data-lightbox aria-label="Extreme City Car Driving – open image in full size"><img src="img/pers-3.jpg" alt="Extreme City Car Driving game cover" loading="lazy"></a>
-        <div class="project-body">
-          <p class="project-meta"><span>Games</span><span>2021</span><span>Quartz Games</span></p>
-          <h3 class="project-title" id="project-citydriving-title">Extreme City Car Driving</h3>
-          <p class="project-lead">A city car driving game I developed in my spare time and published on Google Play.</p>
-          <h4 class="project-subtitle">What I did</h4>
-          <ul class="project-list">
-            <li>Designed and developed the game in Unity with C#.</li>
-            <li>Published it on Google Play.</li>
-          </ul>
-          <h4 class="project-subtitle">Tools &amp; technologies</h4>
-          <ul class="list-inline project-tags">
-            <li class="list-inline-item">Unity</li>
-            <li class="list-inline-item">C#</li>
-            <li class="list-inline-item">Android</li>
-            <li class="list-inline-item">Google Play</li>
-          </ul>
-          <div class="project-links"><a class="btn button-main button-scheme" href="https://play.google.com/store/apps/details?id=com.FYSIO.CityCarDriving2021" target="_blank" rel="noopener">Get it on Google Play</a></div>
+        <div class="project-stage">
+          <img class="stage-backdrop" src="img/pers-3.jpg" alt="" aria-hidden="true">
+          <a class="stage-link" href="img/pers-3.jpg" data-lightbox aria-label="Open the image in full size"><img class="stage-image" src="img/pers-3.jpg" alt="Extreme City Car Driving game cover" width="680" height="727"><span class="stage-zoom" aria-hidden="true"><i class="icon ion-md-expand"></i></span></a>
+        </div>
+        <div class="project-content">
+          <header class="project-header">
+            <p class="project-kicker">Games</p>
+            <h3 class="project-title" id="project-citydriving-title">Extreme City Car Driving</h3>
+            <p class="project-lead">A city car driving game I developed in my spare time and published on Google Play.</p>
+            <div class="project-actions"><a class="btn button-main button-scheme" href="https://play.google.com/store/apps/details?id=com.FYSIO.CityCarDriving2021" target="_blank" rel="noopener">Get it on Google Play<i class="icon ion-md-open" aria-hidden="true"></i></a></div>
+          </header>
+          <div class="project-columns">
+            <section class="project-main">
+              <h4 class="project-subtitle">What I did</h4>
+              <ul class="project-list">
+                <li>Designed and developed the game in Unity with C#.</li>
+                <li>Published it on Google Play.</li>
+              </ul>
+            </section>
+            <aside class="project-aside">
+              <h4 class="project-subtitle">Project details</h4>
+              <dl class="project-facts">
+                <dt>Type</dt><dd>Spare-time project</dd>
+                <dt>Platform</dt><dd>Android</dd>
+                <dt>Period</dt><dd>2021</dd>
+              </dl>
+              <h4 class="project-subtitle">Tools &amp; technologies</h4>
+              <ul class="list-unstyled project-tags">
+                <li>Unity</li>
+                <li>C#</li>
+                <li>Android</li>
+                <li>Google Play</li>
+              </ul>
+            </aside>
+          </div>
         </div>
       </article>
       <article class="lity-hide project-detail" id="project-designnow" aria-labelledby="project-designnow-title">
-        <a class="project-cover" href="img/item-2.jpg" data-lightbox aria-label="DesignNOW Hackathon – 1st Place – open image in full size"><img src="img/item-2.jpg" alt="DesignNOW plant irrigation system PCB render" loading="lazy"></a>
-        <div class="project-body">
-          <p class="project-meta"><span>Embedded &amp; Hardware</span><span>2021</span><span>Autodesk &amp; IEEE</span></p>
-          <h3 class="project-title" id="project-designnow-title">DesignNOW Hackathon – 1st Place</h3>
-          <p class="project-lead">At the Autodesk and IEEE DesignNOW hackathon my team designed a plant irrigation system and won 1st place among 77 teams.</p>
-          <h4 class="project-subtitle">What I did</h4>
-          <ul class="project-list">
-            <li>Designed the plant irrigation system as a team, from idea to product design.</li>
-            <li>Electronics and PCB design with Autodesk EAGLE; product design with Fusion 360.</li>
-            <li>Ranked 1st out of 77 teams.</li>
-          </ul>
-          <h4 class="project-subtitle">Tools &amp; technologies</h4>
-          <ul class="list-inline project-tags">
-            <li class="list-inline-item">Fusion 360</li>
-            <li class="list-inline-item">EAGLE</li>
-            <li class="list-inline-item">PCB design</li>
-            <li class="list-inline-item">Teamwork</li>
-          </ul>
-          <div class="project-links"><a class="btn button-main button-scheme" href="https://www.tasarimveteknik.com/2020/09/designnow-online-sonuclandi/" target="_blank" rel="noopener">Read the announcement (Turkish)</a></div>
+        <div class="project-stage">
+          <img class="stage-backdrop" src="img/item-2.jpg" alt="" aria-hidden="true">
+          <a class="stage-link" href="img/item-2.jpg" data-lightbox aria-label="Open the image in full size"><img class="stage-image" src="img/item-2.jpg" alt="DesignNOW plant irrigation system PCB render" width="680" height="727"><span class="stage-zoom" aria-hidden="true"><i class="icon ion-md-expand"></i></span></a>
+        </div>
+        <div class="project-content">
+          <header class="project-header">
+            <p class="project-kicker">Embedded &amp; Hardware</p>
+            <h3 class="project-title" id="project-designnow-title">DesignNOW Hackathon</h3>
+            <p class="project-lead">At the Autodesk and IEEE DesignNOW hackathon my team designed a plant irrigation system and won 1st place among 77 teams.</p>
+            <div class="project-actions"><a class="btn button-main button-scheme" href="https://www.tasarimveteknik.com/2020/09/designnow-online-sonuclandi/" target="_blank" rel="noopener">Read the announcement (Turkish)<i class="icon ion-md-open" aria-hidden="true"></i></a></div>
+          </header>
+          <div class="project-columns">
+            <section class="project-main">
+              <h4 class="project-subtitle">What I did</h4>
+              <ul class="project-list">
+                <li>Designed the plant irrigation system as a team, from idea to product design.</li>
+                <li>Electronics and PCB design with Autodesk EAGLE; product design with Fusion 360.</li>
+                <li>Ranked 1st out of 77 teams.</li>
+              </ul>
+            </section>
+            <aside class="project-aside">
+              <h4 class="project-subtitle">Project details</h4>
+              <dl class="project-facts">
+                <dt>Event</dt><dd>Autodesk &amp; IEEE DesignNOW</dd>
+                <dt>Result</dt><dd>1st place of 77 teams</dd>
+                <dt>Period</dt><dd>2021</dd>
+              </dl>
+              <h4 class="project-subtitle">Tools &amp; technologies</h4>
+              <ul class="list-unstyled project-tags">
+                <li>Fusion 360</li>
+                <li>EAGLE</li>
+                <li>PCB design</li>
+                <li>Teamwork</li>
+              </ul>
+            </aside>
+          </div>
         </div>
       </article>
       <article class="lity-hide project-detail" id="project-telescope" aria-labelledby="project-telescope-title">
-        <a class="project-cover" href="img/pers-4.jpg" data-lightbox aria-label="Radio Telescope – open image in full size"><img src="img/pers-4.jpg" alt="Home-built radio telescope dish on its azimuth mount" loading="lazy"></a>
-        <div class="project-body">
-          <p class="project-meta"><span>Personal</span><span>2020</span></p>
-          <h3 class="project-title" id="project-telescope-title">Radio Telescope</h3>
-          <p class="project-lead">A personal project in which I built a radio telescope from scratch. The antenna rotates on the azimuth axis, communicates over Wi-Fi and is controlled from a web interface served by a local server.</p>
-          <h4 class="project-subtitle">What I did</h4>
-          <ul class="project-list">
-            <li><strong>Mechanics:</strong> designed and built the azimuth-axis rotating mount.</li>
-            <li><strong>Electronics:</strong> motor control and Wi-Fi communication.</li>
-            <li><strong>Software:</strong> a local server with a web interface to control the telescope.</li>
-          </ul>
-          <h4 class="project-subtitle">Tools &amp; technologies</h4>
-          <ul class="list-inline project-tags">
-            <li class="list-inline-item">Mechanical design</li>
-            <li class="list-inline-item">Embedded</li>
-            <li class="list-inline-item">Wi-Fi</li>
-            <li class="list-inline-item">Web interface</li>
-          </ul>
-          <div class="project-links"><a class="btn button-main button-scheme" href="https://www.youtube.com/watch?v=EFeonz5rfx0" data-lightbox>Watch the video</a></div>
+        <div class="project-stage">
+          <img class="stage-backdrop" src="img/pers-4.jpg" alt="" aria-hidden="true">
+          <a class="stage-link" href="img/pers-4.jpg" data-lightbox aria-label="Open the image in full size"><img class="stage-image" src="img/pers-4.jpg" alt="Home-built radio telescope dish on its azimuth mount" width="680" height="727"><span class="stage-zoom" aria-hidden="true"><i class="icon ion-md-expand"></i></span></a>
+        </div>
+        <div class="project-content">
+          <header class="project-header">
+            <p class="project-kicker">Personal</p>
+            <h3 class="project-title" id="project-telescope-title">Radio Telescope</h3>
+            <p class="project-lead">A personal project in which I built a radio telescope from scratch. The antenna rotates on the azimuth axis, communicates over Wi-Fi and is controlled from a web interface served by a local server.</p>
+            <div class="project-actions"><a class="btn button-main button-scheme" href="https://www.youtube.com/watch?v=EFeonz5rfx0" data-lightbox>Watch the video<i class="icon ion-md-play" aria-hidden="true"></i></a></div>
+          </header>
+          <div class="project-columns">
+            <section class="project-main">
+              <h4 class="project-subtitle">What I did</h4>
+              <ul class="project-list">
+                <li><strong>Mechanics:</strong> designed and built the azimuth-axis rotating mount.</li>
+                <li><strong>Electronics:</strong> motor control and Wi-Fi communication.</li>
+                <li><strong>Software:</strong> a local server with a web interface to control the telescope.</li>
+              </ul>
+            </section>
+            <aside class="project-aside">
+              <h4 class="project-subtitle">Project details</h4>
+              <dl class="project-facts">
+                <dt>Type</dt><dd>Personal project</dd>
+                <dt>Period</dt><dd>2020</dd>
+              </dl>
+              <h4 class="project-subtitle">Tools &amp; technologies</h4>
+              <ul class="list-unstyled project-tags">
+                <li>Mechanical design</li>
+                <li>Embedded</li>
+                <li>Wi-Fi</li>
+                <li>Web interface</li>
+              </ul>
+            </aside>
+          </div>
         </div>
       </article>
       <article class="lity-hide project-detail" id="project-lodos" aria-labelledby="project-lodos-title">
-        <a class="project-cover" href="img/lodos-2.jpg" data-lightbox aria-label="Lodos Electromobile – open image in full size"><img src="img/lodos-2.jpg" alt="Lodos Electromobile team with their electric car" loading="lazy"></a>
-        <div class="project-body">
-          <p class="project-meta"><span>Embedded &amp; Hardware</span><span>2018 – 2020</span><span>Düzce University · Team captain</span></p>
-          <h3 class="project-title" id="project-lodos-title">Lodos Electromobile</h3>
-          <p class="project-lead">Lodos is Düzce University’s electric vehicle team that competes in the TÜBİTAK Efficiency Challenge. As team captain I also worked on the car’s electronics: the vehicle control system, the battery management system and the battery charger.</p>
-          <h4 class="project-subtitle">Results</h4>
-          <ul class="project-list">
-            <li>TÜBİTAK Efficiency Challenge 2019: 11th of 93 teams</li>
-            <li>TÜBİTAK Efficiency Challenge 2020: 10th of 105 teams</li>
-          </ul>
-          <h4 class="project-subtitle">What I did</h4>
-          <ul class="project-list">
-            <li><strong>Vehicle Control System</strong> (2018): Linux-based control panel written with Qt; lights, horn and wipers controlled by an ATmega328P over SPI; LoRa and MQTT communication.</li>
-            <li><strong>Battery Management System</strong> (2019): for a 16S22P Li-ion pack, with active cell balancing, overload protection, an isolated power supply and multi-channel temperature monitoring and protection.</li>
-            <li><strong>Li-ion Charger</strong> (2020): 16S, 10 A, 500 W charger based on a full-bridge buck converter topology, including the PCB design.</li>
-          </ul>
-          <h4 class="project-subtitle">Tools &amp; technologies</h4>
-          <ul class="list-inline project-tags">
-            <li class="list-inline-item">Qt</li>
-            <li class="list-inline-item">Linux</li>
-            <li class="list-inline-item">ATmega328P</li>
-            <li class="list-inline-item">SPI</li>
-            <li class="list-inline-item">LoRa</li>
-            <li class="list-inline-item">MQTT</li>
-            <li class="list-inline-item">BMS</li>
-            <li class="list-inline-item">Power electronics</li>
-            <li class="list-inline-item">PCB design</li>
-          </ul>
-          <h4 class="project-subtitle">Gallery</h4>
-          <ul class="list-unstyled project-gallery">
-            <li><a href="img/lodos-1.jpg" data-lightbox aria-label="Lodos cars on the race track – open photo"><img src="img/lodos-1.jpg" alt="Lodos cars on the race track" loading="lazy"></a></li>
-            <li><a href="img/lodos-3.jpg" data-lightbox aria-label="In-vehicle display electronics under test – open photo"><img src="img/lodos-3.jpg" alt="In-vehicle display electronics under test" loading="lazy"></a></li>
-            <li><a href="img/lodos-4.jpg" data-lightbox aria-label="Electronics enclosure during development – open photo"><img src="img/lodos-4.jpg" alt="Electronics enclosure during development" loading="lazy"></a></li>
-            <li><a href="img/lodos-5.jpg" data-lightbox aria-label="The Lodos car at the team tent – open photo"><img src="img/lodos-5.jpg" alt="The Lodos car at the team tent" loading="lazy"></a></li>
-            <li><a href="img/lodos-6.jpg" data-lightbox aria-label="Lodos cars on the track – open photo"><img src="img/lodos-6.jpg" alt="Lodos cars on the track" loading="lazy"></a></li>
-          </ul>
-          <div class="project-links"><a class="btn button-main button-scheme" href="https://www.yenihaberden.com/duzce-universitesi-ogrencileri-gelecek-icin-umit-verdi-1171919h.htm" target="_blank" rel="noopener">Read the news article (Turkish)</a></div>
+        <div class="project-stage">
+          <img class="stage-backdrop" src="img/lodos-2.jpg" alt="" aria-hidden="true">
+          <a class="stage-link" href="img/lodos-2.jpg" data-lightbox aria-label="Open the image in full size"><img class="stage-image" src="img/lodos-2.jpg" alt="Lodos Electromobile team with their electric car" width="860" height="919"><span class="stage-zoom" aria-hidden="true"><i class="icon ion-md-expand"></i></span></a>
+          <p class="stage-caption">Lodos Electromobile team with their electric car</p>
+          <div class="stage-thumbs" role="group" aria-label="Project photos">
+            <button type="button" class="is-active" data-src="img/lodos-2.jpg" data-width="860" data-height="919" aria-pressed="true"><img src="img/lodos-2.jpg" alt="Lodos Electromobile team with their electric car" loading="lazy"></button>
+            <button type="button" data-src="img/lodos-1.jpg" data-width="860" data-height="919" aria-pressed="false"><img src="img/lodos-1.jpg" alt="Lodos cars on the race track" loading="lazy"></button>
+            <button type="button" data-src="img/lodos-3.jpg" data-width="860" data-height="919" aria-pressed="false"><img src="img/lodos-3.jpg" alt="In-vehicle display electronics under test" loading="lazy"></button>
+            <button type="button" data-src="img/lodos-4.jpg" data-width="727" data-height="680" aria-pressed="false"><img src="img/lodos-4.jpg" alt="Electronics enclosure during development" loading="lazy"></button>
+            <button type="button" data-src="img/lodos-5.jpg" data-width="680" data-height="727" aria-pressed="false"><img src="img/lodos-5.jpg" alt="The Lodos car at the team tent" loading="lazy"></button>
+            <button type="button" data-src="img/lodos-6.jpg" data-width="680" data-height="727" aria-pressed="false"><img src="img/lodos-6.jpg" alt="Lodos cars on the track" loading="lazy"></button>
+          </div>
+        </div>
+        <div class="project-content">
+          <header class="project-header">
+            <p class="project-kicker">Embedded &amp; Hardware</p>
+            <h3 class="project-title" id="project-lodos-title">Lodos Electromobile</h3>
+            <p class="project-lead">Lodos is Düzce University’s electric vehicle team that competes in the TÜBİTAK Efficiency Challenge. As team captain I also worked on the car’s electronics: the vehicle control system, the battery management system and the battery charger.</p>
+            <div class="project-actions"><a class="btn button-main button-scheme" href="https://www.yenihaberden.com/duzce-universitesi-ogrencileri-gelecek-icin-umit-verdi-1171919h.htm" target="_blank" rel="noopener">Read the news article (Turkish)<i class="icon ion-md-open" aria-hidden="true"></i></a></div>
+          </header>
+          <div class="project-columns">
+            <section class="project-main">
+              <h4 class="project-subtitle">What I did</h4>
+              <ul class="project-list">
+                <li><strong>Vehicle Control System</strong> (2018): Linux-based control panel written with Qt; lights, horn and wipers controlled by an ATmega328P over SPI; LoRa and MQTT communication.</li>
+                <li><strong>Battery Management System</strong> (2019): for a 16S22P Li-ion pack, with active cell balancing, overload protection, an isolated power supply and multi-channel temperature monitoring and protection.</li>
+                <li><strong>Li-ion Charger</strong> (2020): 16S, 10 A, 500 W charger based on a full-bridge buck converter topology, including the PCB design.</li>
+              </ul>
+            </section>
+            <aside class="project-aside">
+              <h4 class="project-subtitle">Project details</h4>
+              <dl class="project-facts">
+                <dt>Organization</dt><dd>Düzce University</dd>
+                <dt>Role</dt><dd>Team captain</dd>
+                <dt>Period</dt><dd>2018 – 2020</dd>
+                <dt>Results</dt><dd><ul><li>TÜBİTAK Efficiency Challenge 2019: 11th of 93 teams</li><li>TÜBİTAK Efficiency Challenge 2020: 10th of 105 teams</li></ul></dd>
+              </dl>
+              <h4 class="project-subtitle">Tools &amp; technologies</h4>
+              <ul class="list-unstyled project-tags">
+                <li>Qt</li>
+                <li>Linux</li>
+                <li>ATmega328P</li>
+                <li>SPI</li>
+                <li>LoRa</li>
+                <li>MQTT</li>
+                <li>BMS</li>
+                <li>Power electronics</li>
+                <li>PCB design</li>
+              </ul>
+            </aside>
+          </div>
         </div>
       </article>
     </div>
