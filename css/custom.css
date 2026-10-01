@@ -22,27 +22,6 @@
   content: '.';
 }
 
-/* Small footer on the home screen (also visible on mobile, where the fixed blocks are hidden) */
-.home-area .home-footer {
-  bottom: 12px;
-  font-size: 13px;
-  left: 0;
-  margin: 0;
-  position: absolute;
-  text-align: center;
-  width: 100%;
-  z-index: 3;
-}
-
-.home-area .home-footer a {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.home-area .home-footer a:hover,
-.home-area .home-footer a:focus {
-  color: #fff;
-}
-
 /*----------- About -----------*/
 .about-photo {
   margin: 0 auto 0 0;
@@ -758,15 +737,6 @@
   font-size: 18px;
 }
 
-.contact-section .contact-privacy {
-  font-size: 13px;
-  margin: 24px 0 0;
-}
-
-.contact-section .contact-privacy a {
-  color: #8d8d8d;
-}
-
 @media (max-width: 991.98px) {
   .contact-main {
     margin-bottom: 50px;
@@ -823,8 +793,7 @@
 }
 
 .home-area .container,
-.home-area .fixed-wrapper,
-.home-area .home-footer {
+.home-area .fixed-wrapper {
   z-index: 3;
 }
 
