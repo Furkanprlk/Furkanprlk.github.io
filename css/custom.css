@@ -832,20 +832,6 @@
   position: relative;
 }
 
-.home-area .hero-kicker {
-  color: #9a9a9a;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  margin-bottom: 18px;
-  text-transform: uppercase;
-}
-
-.home-area .hero-kicker span[aria-hidden="true"] {
-  color: var(--custom);
-  margin: 0 6px;
-}
-
 .home-area .home-name {
   margin-bottom: 22px;
 }
@@ -914,15 +900,6 @@
 }
 
 @media (max-width: 575.98px) {
-  .home-area .hero-kicker {
-    font-size: 11px;
-    letter-spacing: 0.16em;
-  }
-
-  .home-area .hero-kicker .kicker-extra {
-    display: none;
-  }
-
   .home-area .hero-intro {
     font-size: 15px;
   }
@@ -932,12 +909,6 @@
   }
 }
 
-/* Keep the longest rotating headline on one line on small phones */
-@media (max-width: 575.98px) {
-  .home-area .home-headline {
-    font-size: 20px;
-  }
-}
 
 /*----------- Portfolio -----------*/
 /* Filters are real buttons so they work with the keyboard (main.js listens for clicks on the <li>) */
