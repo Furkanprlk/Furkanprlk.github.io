@@ -1181,6 +1181,14 @@
   margin-bottom: 14px;
 }
 
+/* Second name of a project, e.g. its Turkish name */
+.project-detail .project-alt-name {
+  color: #9a9a9a;
+  font-size: 15px;
+  font-weight: 500;
+  margin: -6px 0 16px;
+}
+
 .project-detail .project-lead {
   color: #d2d2d2;
   font-size: 16px;
