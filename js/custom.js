@@ -43,10 +43,48 @@
       }
     });
 
+    /* The close buttons are <div>s: make them reachable and usable with the keyboard */
+    $('.lightbox-wrapper .close-btn').attr({ role: 'button', tabindex: '0', 'aria-label': 'Close' });
+    $(document).on('keydown', '.lightbox-wrapper .close-btn, .lity-close', function(event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        $(this).trigger('click');
+      }
+    });
+
     /* Buttons that open a section lightbox (e.g. "View my work" on the home screen) */
     $(document).on('click', '[data-open-section]', function(event) {
       event.preventDefault();
       $('.navbar .nav-link[href="#' + $(this).data('open-section') + '"]').trigger('click');
+    });
+
+    /* Portfolio filters: on narrow phones they form one row that scrolls sideways.
+       Fade the edges where more filters are hidden, and bring a tapped filter fully into view. */
+    var filterRow = $('#portfolio .filter-control');
+    var updateFilterFade = function() {
+      var row = filterRow[0];
+      if (!row) {
+        return;
+      }
+      var max = row.scrollWidth - row.clientWidth;
+      filterRow.toggleClass('can-scroll-left', row.scrollLeft > 2)
+        .toggleClass('can-scroll-right', row.scrollLeft < max - 2);
+    };
+    filterRow.on('scroll', updateFilterFade);
+    $(window).on('resize', updateFilterFade);
+    $('.navbar .nav-link[href="#portfolio"]').on('click', function() {
+      setTimeout(updateFilterFade, 100);
+    });
+    updateFilterFade();
+    filterRow.on('click', 'li', function() {
+      var row = filterRow[0];
+      var item = this.getBoundingClientRect();
+      var box = row.getBoundingClientRect();
+      if (item.left < box.left + 15) {
+        row.scrollBy({ left: item.left - box.left - 15, behavior: 'smooth' });
+      } else if (item.right > box.right - 15) {
+        row.scrollBy({ left: item.right - box.right + 15, behavior: 'smooth' });
+      }
     });
 
     /* Contact: copy the e-mail address */

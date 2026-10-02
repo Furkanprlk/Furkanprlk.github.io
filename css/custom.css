@@ -880,24 +880,63 @@
 
 
 /*----------- Portfolio -----------*/
-/* Filters are real buttons so they work with the keyboard (main.js listens for clicks on the <li>) */
-.portfolio-section .filter-control>li>button {
-  background: none;
+/* Filters are real buttons so they work with the keyboard (main.js listens for clicks on the <li>).
+   They are shown as pills: easy to tap on phones and the active one is clear at a glance. */
+.portfolio-section .filter-control {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 10px;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.portfolio-section .filter-control>li,
+.portfolio-section .filter-control>li:not(:last-child) {
   border: 0;
-  color: inherit;
+  margin: 0;
+}
+
+.portfolio-section .filter-control>li:before,
+.portfolio-section .filter-control>li:hover:before,
+.portfolio-section .filter-control>li.tab-active:before {
+  display: none;
+}
+
+.portfolio-section .filter-control>li>button {
+  background-color: #161616;
+  border: 1px solid #2a2a2a;
+  border-radius: 999px;
+  color: #cfcfcf;
   cursor: pointer;
   font: inherit;
+  font-size: 14px;
   letter-spacing: inherit;
-  padding: 0;
+  line-height: 1.4;
+  padding: 9px 18px;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.portfolio-section .filter-control>li>button:hover {
+  border-color: #4a4a4a;
+  color: #fff;
+}
+
+.portfolio-section .filter-control>li.tab-active>button {
+  background-color: var(--custom);
+  border-color: var(--custom);
+  color: #fff;
+}
+
+.portfolio-section .filter-control>li>button:focus {
+  outline: none;
 }
 
 .portfolio-section .filter-control>li>button:focus-visible {
   outline: 2px solid var(--custom);
-  outline-offset: 4px;
-}
-
-.portfolio-section .filter-control {
-  margin-bottom: 36px;
+  outline-offset: 3px;
 }
 
 /* Project cards: the whole card is a link. Images are never cropped: they are
@@ -1403,6 +1442,68 @@
   visibility: hidden;
 }
 
+/*----------- Close buttons -----------*/
+/* Round buttons with a dark background, so they stay visible and never sit on top of
+   text that scrolls under them (sections, project dialogs and full-size images) */
+.lightbox-wrapper .lightbox-close {
+  right: 4vw;
+  top: 22px;
+}
+
+.lightbox-wrapper .lightbox-close .close-btn,
+.lity-close,
+.lity-close:hover,
+.lity-close:focus,
+.lity-close:active,
+.lity-close:visited {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background-color: rgba(26, 26, 26, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+  height: 46px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  width: 46px;
+}
+
+.lity-close,
+.lity-close:hover,
+.lity-close:focus,
+.lity-close:active,
+.lity-close:visited {
+  right: 12px;
+  top: 12px;
+}
+
+.lightbox-wrapper .lightbox-close .close-btn:before,
+.lightbox-wrapper .lightbox-close .close-btn:after,
+.lity-close:before,
+.lity-close:after {
+  left: 50%;
+  margin: -1px 0 0 -9px;
+  top: 50%;
+  width: 18px;
+}
+
+@media (hover: hover) {
+  .lightbox-wrapper .lightbox-close .close-btn:hover,
+  .lity-close:hover {
+    background-color: var(--custom);
+    border-color: var(--custom);
+  }
+}
+
+.lightbox-wrapper .lightbox-close .close-btn:focus,
+.lity-close:focus {
+  outline: none;
+}
+
+.lightbox-wrapper .lightbox-close .close-btn:focus-visible,
+.lity-close:focus-visible {
+  outline: 2px solid var(--custom);
+  outline-offset: 3px;
+}
+
 /*----------- Phones and small screens -----------*/
 /* Keep the home content below the fixed navbar */
 .home-area .container {
@@ -1595,5 +1696,183 @@
 
   .project-card:hover .media-image {
     transform: none;
+  }
+}
+
+/*----------- Phones: sections, portfolio and project dialogs -----------*/
+/* No grey flash when links and buttons are tapped on mobile browsers */
+a,
+button,
+[role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 767.98px) {
+  /* Close buttons in the corner, a little smaller */
+  .lightbox-wrapper .lightbox-close {
+    right: 14px;
+    top: 14px;
+  }
+
+  .lity-close,
+  .lity-close:hover,
+  .lity-close:focus,
+  .lity-close:active,
+  .lity-close:visited {
+    right: 14px;
+    top: 14px;
+  }
+
+  .lightbox-wrapper .lightbox-close .close-btn,
+  .lity-close,
+  .lity-close:hover,
+  .lity-close:focus,
+  .lity-close:active,
+  .lity-close:visited {
+    height: 44px;
+    width: 44px;
+  }
+
+  /* Sections: tighter spacing, so more content fits on the screen */
+  .lightbox-wrapper .lightbox-content {
+    margin: 76px 0 56px;
+  }
+
+  .lightbox-wrapper .lightbox-content .section-heading.page-heading {
+    margin-bottom: 44px;
+  }
+
+  .lightbox-wrapper .lightbox-content .section-heading.page-heading>.section-title {
+    margin-bottom: 24px;
+  }
+
+  .lightbox-wrapper .lightbox-content .single-section:not(:last-child) {
+    margin-bottom: 72px;
+  }
+
+  .lightbox-wrapper .lightbox-content .section-heading {
+    margin-bottom: 32px;
+  }
+
+  /* Thin scrollbar, so it does not cover the content */
+  .lightbox-wrapper .simplebar-track.simplebar-vertical {
+    width: 8px;
+  }
+
+  .lightbox-wrapper .simplebar-track.simplebar-vertical .simplebar-scrollbar {
+    right: 1px;
+    width: 4px;
+  }
+
+  /* Portfolio */
+  .portfolio-section .filter-control {
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .portfolio-section .filter-control>li>button {
+    font-size: 13px;
+    padding: 8px 15px;
+  }
+
+  .portfolio-section .portfolio-grid .single-item {
+    margin-bottom: 22px;
+  }
+
+  /* Project details open full screen, like a page of an app */
+  .lity-inline .lity-wrap:before {
+    display: none;
+  }
+
+  .lity-inline .lity-container {
+    display: block;
+    height: 100%;
+  }
+
+  .lity-inline .lity-content:after {
+    box-shadow: none;
+  }
+
+  .project-detail {
+    border-radius: 0;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    max-height: 100vh !important;
+    max-height: calc(var(--vh, 1vh) * 100) !important;
+    max-width: none;
+    width: 100%;
+  }
+
+  /* Room for the close button above the photo or video */
+  .project-detail .project-stage {
+    padding: 70px 16px 18px;
+  }
+}
+
+/* Narrow phones: the filters form one row that scrolls sideways, edge to edge */
+@media (max-width: 575.98px) {
+  .portfolio-section .filter-control {
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    margin: 0 -15px 26px;
+    overflow-x: auto;
+    padding: 2px 15px 4px;
+    scrollbar-width: none;
+  }
+
+  .portfolio-section .filter-control::-webkit-scrollbar {
+    display: none;
+  }
+
+  .portfolio-section .filter-control>li {
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+  }
+
+  /* Fade the edge where more filters can be scrolled into view (classes set in js/custom.js) */
+  .portfolio-section .filter-control.can-scroll-left {
+    --fade-left: 36px;
+  }
+
+  .portfolio-section .filter-control.can-scroll-right {
+    --fade-right: 56px;
+  }
+
+  .portfolio-section .filter-control.can-scroll-left,
+  .portfolio-section .filter-control.can-scroll-right {
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-left, 0px), #000 calc(100% - var(--fade-right, 0px)), transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-left, 0px), #000 calc(100% - var(--fade-right, 0px)), transparent 100%);
+  }
+
+  /* Space after the last filter when the row is scrolled to the end */
+  .portfolio-section .filter-control:after {
+    content: '';
+    -ms-flex: 0 0 7px;
+    flex: 0 0 7px;
+  }
+}
+
+/* The template adds extra space under the About intro on smaller screens; the section spacing is enough */
+@media (max-width: 991.98px) {
+  #about .info-section {
+    padding-bottom: 0;
+  }
+}
+
+/* Small phones in landscape: the photo or video and its thumbnails fit on the screen
+   (side padding keeps the close button clear of the media) */
+@media (max-width: 767.98px) and (max-height: 520px) {
+  .project-detail .project-stage {
+    padding: 14px 64px;
+  }
+}
+
+/* Tablets: keep the project dialog clear of the close button in the corner */
+@media (min-width: 768px) and (max-width: 1199.98px) and (min-height: 521px) {
+  .project-detail {
+    max-height: calc(100vh - 150px) !important;
+    max-height: calc(var(--vh, 1vh) * 100 - 150px) !important;
   }
 }
