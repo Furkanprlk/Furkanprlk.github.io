@@ -14,6 +14,35 @@
   $(function() {
     // Code here executes When the DOM is loaded...
 
+    /* Phones: full-screen menu opened with the menu button */
+    var menuButton = $('.navbar .navbar-menu');
+    var setMenu = function(open) {
+      $('body').toggleClass('menu-open', open);
+      menuButton.attr('aria-expanded', open ? 'true' : 'false');
+    };
+    menuButton.on('click', function() {
+      setMenu(!$('body').hasClass('menu-open'));
+    }).on('keydown', function(event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        setMenu(!$('body').hasClass('menu-open'));
+      }
+    });
+    // Close it when a link is chosen, when the empty background is tapped or with Escape
+    $('.navbar .navbar-collapse a').on('click', function() {
+      setMenu(false);
+    });
+    $('.navbar .navbar-collapse').on('click', function(event) {
+      if (event.target === this) {
+        setMenu(false);
+      }
+    });
+    $(document).on('keydown', function(event) {
+      if (event.key === 'Escape') {
+        setMenu(false);
+      }
+    });
+
     /* Buttons that open a section lightbox (e.g. "View my work" on the home screen) */
     $(document).on('click', '[data-open-section]', function(event) {
       event.preventDefault();
